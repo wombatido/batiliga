@@ -3,176 +3,352 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0f18">
 <title>BATILIGA NFL 26/27</title>
 <style>
   :root{
-    --bg:#0a0e17; --panel:#121826; --panel2:#171f30; --line:#243049;
-    --txt:#e8edf7; --dim:#8b97ad; --gold:#f5c542; --silver:#c9d2e0;
-    --green:#22c55e; --red:#ef4444; --accent:#3b82f6; --bat:#facc15;
+    --bg:#0b0f18; --card:#131926; --card2:#192132; --line:#263148;
+    --txt:#e9eef8; --dim:#8a97ae; --dim2:#5e6b82;
+    --gold:#f2c14e; --silver:#b9c3d4; --bronze:#c98a52;
+    --live:#34d399; --dead:#f05a5a; --accent:#5b8def;
+    --r:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;padding:24px 16px 60px;}
-  .wrap{max-width:1100px;margin:0 auto}
-  header{text-align:center;padding:28px 16px 24px;background:linear-gradient(160deg,#111a2e,#0a0e17);border:1px solid var(--line);border-radius:16px;margin-bottom:22px;position:relative;overflow:hidden}
-  header:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 120px at 50% 0%,rgba(250,204,21,.13),transparent 70%)}
-  .bat{font-size:40px;line-height:1}
-  h1{font-size:clamp(26px,5vw,42px);letter-spacing:-1px;margin:6px 0 4px;background:linear-gradient(90deg,var(--bat),#fff 60%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
-  .sub{color:var(--dim);font-size:14px}
-  .upd{display:inline-block;margin-top:12px;font-size:12px;color:var(--dim);background:var(--panel2);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
-  .live{width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block;margin-right:6px;animation:p 1.6s infinite}
-  @keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    padding:20px 16px 56px;line-height:1.45;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:980px;margin:0 auto}
 
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:24px}
-  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
-  .kpi .l{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--dim);margin-bottom:6px}
-  .kpi .v{font-size:26px;font-weight:800}
-  .kpi .v small{font-size:13px;color:var(--dim);font-weight:500}
+  /* ---------- header ---------- */
+  header{text-align:center;padding:30px 18px 26px;background:
+    radial-gradient(520px 150px at 50% -10%,rgba(242,193,78,.12),transparent 70%),
+    linear-gradient(170deg,#141c2e,#0b0f18);
+    border:1px solid var(--line);border-radius:18px;margin-bottom:18px}
+  h1{font-size:clamp(25px,6.5vw,40px);font-weight:800;letter-spacing:-1.2px;line-height:1.05}
+  .etim{font-size:11px;color:var(--dim2);letter-spacing:1.6px;text-transform:uppercase;margin-bottom:10px}
+  .sub{color:var(--dim);font-size:13.5px;margin-top:7px}
+  .upd{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:11.5px;color:var(--dim);
+    background:rgba(255,255,255,.04);border:1px solid var(--line);padding:6px 13px;border-radius:99px}
+  .dot{width:6px;height:6px;background:var(--live);border-radius:50%;animation:p 2s infinite}
+  @keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
 
-  section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}
-  h2{font-size:17px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  h2 .tag{font-size:10px;background:var(--panel2);border:1px solid var(--line);color:var(--dim);padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.6px;font-weight:600}
-  .hint{color:var(--dim);font-size:12.5px;margin-bottom:14px}
+  /* ---------- kpis ---------- */
+  .kpis{display:grid;gap:11px;grid-template-columns:repeat(4,1fr);margin-bottom:18px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 15px}
+  .kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--dim2);margin-bottom:7px;font-weight:700}
+  .kpi .v{font-size:21px;font-weight:800;letter-spacing:-.5px;line-height:1.15}
+  .kpi .v .u{font-size:12px;color:var(--dim);font-weight:600}
+  .kpi .s{font-size:11.5px;color:var(--dim);margin-top:5px}
 
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);padding:9px 10px;border-bottom:1px solid var(--line);font-weight:600}
-  td{padding:11px 10px;border-bottom:1px solid rgba(36,48,73,.55)}
-  tr:last-child td{border-bottom:none}
-  tbody tr:hover{background:var(--panel2)}
-  .r{width:42px;font-weight:800;color:var(--dim);text-align:center}
-  .r1{color:var(--gold)} .r2{color:var(--silver)}
-  .nm{font-weight:600}
-  .real{color:var(--dim);font-size:12px;font-weight:400;margin-left:6px}
-  .pts{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
-  .wl{color:var(--dim);font-variant-numeric:tabular-nums;text-align:center}
-  .pct{text-align:right;font-variant-numeric:tabular-nums;color:var(--dim)}
-  .me{background:rgba(250,204,21,.07)!important;box-shadow:inset 3px 0 0 var(--bat)}
-  .prize{font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
-  .p1{background:rgba(245,197,66,.14);color:var(--gold);border:1px solid rgba(245,197,66,.3)}
-  .p2{background:rgba(201,210,224,.12);color:var(--silver);border:1px solid rgba(201,210,224,.25)}
-  .gap{text-align:right;color:var(--dim);font-size:12.5px;font-variant-numeric:tabular-nums}
+  /* ---------- sections ---------- */
+  section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;margin-bottom:16px}
+  .sh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:3px;flex-wrap:wrap}
+  h2{font-size:15px;font-weight:700;letter-spacing:.2px}
+  .tag{font-size:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--dim);
+    padding:3px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.9px;font-weight:700}
+  .hint{color:var(--dim2);font-size:12px;margin-bottom:15px}
 
-  .bar{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-top:5px}
-  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--bat));border-radius:99px}
+  /* ---------- tabla ---------- */
+  .tw{overflow-x:auto;margin:0 -18px;padding:0 18px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:1px;color:var(--dim2);
+    padding:0 8px 10px;border-bottom:1px solid var(--line);font-weight:800;white-space:nowrap}
+  td{padding:11px 8px;border-bottom:1px solid rgba(38,49,72,.5);white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(255,255,255,.022)}
+  .c{text-align:center}.e{text-align:right}
+  .rk{width:30px;text-align:center;font-weight:800;color:var(--dim2);font-size:14px}
+  .rk.g{color:var(--gold)}.rk.s{color:var(--silver)}.rk.b{color:var(--bronze)}
+  .mv{width:26px;text-align:center;font-size:10.5px;font-weight:700;color:var(--dim2)}
+  .mv.up{color:var(--live)}.mv.dn{color:var(--dead)}
+  .who{min-width:150px;white-space:normal}
+  .nm{font-weight:650;font-size:14px}
+  .rl{color:var(--dim2);font-size:11.5px;margin-top:1px}
+  .pts{font-weight:800;font-size:15px}
+  .dim{color:var(--dim)}
+  .bar{height:3px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-top:6px;max-width:120px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:99px}
+  .me{background:rgba(242,193,78,.06)!important;box-shadow:inset 3px 0 0 var(--gold)}
+  .pill{font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:99px;letter-spacing:.3px}
+  .p1{background:rgba(242,193,78,.14);color:var(--gold);border:1px solid rgba(242,193,78,.3)}
+  .p2{background:rgba(185,195,212,.12);color:var(--silver);border:1px solid rgba(185,195,212,.25)}
+  .sv{font-size:10.5px;font-weight:800;letter-spacing:.4px}
+  .sv.v{color:var(--live)}.sv.x{color:var(--dim2)}
+  .cash{font-weight:750;color:var(--live)}
+  .cash.z{color:var(--dim2);font-weight:500}
 
-  .pot{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-  .potbox{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px}
-  .potbox h3{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--dim);margin-bottom:10px}
-  .potbox .big{font-size:24px;font-weight:800;margin-bottom:12px}
-  .prow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid rgba(36,48,73,.5)}
-  .prow:last-child{border:none}
-  .prow span:last-child{font-weight:700}
+  /* ---------- semanales ---------- */
+  .weeks{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+  .wk{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .wk .n{font-size:10px;letter-spacing:1.1px;text-transform:uppercase;color:var(--dim2);font-weight:800;margin-bottom:7px}
+  .wk .g{font-size:15px;font-weight:750}
+  .wk .m{font-size:12px;color:var(--dim);margin-top:4px;display:flex;justify-content:space-between;align-items:center}
+  .wk.open{border-style:dashed;opacity:.72}
+  .wk.open .g{color:var(--dim2);font-weight:500;font-size:13.5px}
+  .amt{color:var(--gold);font-weight:800}
 
-  .empty{text-align:center;color:var(--dim);font-size:13px;padding:26px 10px;background:var(--panel2);border:1px dashed var(--line);border-radius:12px}
-  .wk{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;font-size:14px}
-  .wk .wl2{font-weight:700}
-  .badge{font-size:11px;padding:3px 9px;border-radius:99px;background:rgba(139,151,173,.15);color:var(--dim)}
-  .badge.curso{background:rgba(34,197,94,.15);color:var(--green)}
-  footer{text-align:center;color:var(--dim);font-size:12px;padding-top:12px}
-  @media(max-width:620px){.pot{grid-template-columns:1fr}.hide{display:none}}
+  /* ---------- survival ---------- */
+  .svgrid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(168px,1fr))}
+  .sc{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:11px 12px;
+      display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .sc.out{opacity:.45}
+  .sc .l{min-width:0}
+  .sc .n2{font-weight:650;font-size:13.5px;overflow:hidden;text-overflow:ellipsis}
+  .sc .pk{font-size:10.5px;color:var(--dim2);margin-top:2px;letter-spacing:.5px}
+  .sc .st{font-size:9.5px;font-weight:800;letter-spacing:.6px;padding:3px 7px;border-radius:99px;white-space:nowrap}
+  .st.v{background:rgba(52,211,153,.13);color:var(--live);border:1px solid rgba(52,211,153,.28)}
+  .st.x{background:rgba(240,90,90,.1);color:var(--dead);border:1px solid rgba(240,90,90,.22)}
+  .svhead{display:flex;align-items:center;gap:8px;margin:16px 0 10px;font-size:11px;
+    text-transform:uppercase;letter-spacing:1.1px;color:var(--dim2);font-weight:800}
+  .svhead:first-of-type{margin-top:0}
+  .svhead:after{content:"";flex:1;height:1px;background:var(--line)}
+  .svbar{display:flex;height:7px;border-radius:99px;overflow:hidden;background:var(--card2);margin-bottom:4px}
+  .svbar .a{background:var(--live)}.svbar .b{background:rgba(240,90,90,.35)}
+
+  /* ---------- bolsas ---------- */
+  .pots{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+  .pot{background:var(--card2);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .pot h3{font-size:10.5px;text-transform:uppercase;letter-spacing:1.1px;color:var(--dim2);font-weight:800}
+  .pot .big{font-size:25px;font-weight:800;margin:6px 0 12px;letter-spacing:-.8px}
+  .pr{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:7px 0;
+      border-bottom:1px solid rgba(38,49,72,.5);color:var(--dim)}
+  .pr:last-child{border:none;padding-bottom:0}
+  .pr b{color:var(--txt);font-weight:750;white-space:nowrap}
+
+  .note{font-size:11.5px;color:var(--dim2);margin-top:13px;padding-top:12px;border-top:1px solid rgba(38,49,72,.6)}
+  footer{text-align:center;color:var(--dim2);font-size:11px;padding-top:18px;line-height:1.7}
+
+  @media(max-width:760px){
+    body{padding:14px 12px 44px}
+    .kpis{grid-template-columns:1fr 1fr}
+    .pots{grid-template-columns:1fr}
+    section{padding:17px 15px;border-radius:15px}
+    .tw{margin:0 -15px;padding:0 15px}
+    .h-sm{display:none}
+    .bar{max-width:none}
+  }
+  .meta{display:none;gap:6px;align-items:center;margin-top:5px;flex-wrap:wrap}
+  .meta span{font-size:9px;font-weight:800;letter-spacing:.4px;padding:2px 5px;border-radius:99px;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--dim2)}
+  .meta span.v{background:rgba(52,211,153,.12);color:var(--live);border-color:rgba(52,211,153,.26)}
+  .meta span.c{background:rgba(52,211,153,.1);color:var(--live);border-color:rgba(52,211,153,.22)}
+
+  @media(max-width:430px){ .h-xs{display:none} .who{min-width:0} .meta{display:flex} }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div class="bat">🏈</div>
+    <div class="etim">Wombatido · Batido · Batiliga</div>
     <h1 id="titulo">BATILIGA NFL 26/27</h1>
-    <div class="sub">Pro Football Pick'em · Quiniela + Survival</div>
-    <div class="sub" style="font-size:12px;margin-top:6px;opacity:.75">Wombatido → Batido → <b style="color:var(--bat)">BATILIGA</b></div>
-    <div class="upd"><span class="live"></span><span id="upd"></span></div>
+    <div class="sub">Pro Football Pick'em &nbsp;·&nbsp; Quiniela + Survival</div>
+    <div class="upd"><span class="dot"></span><span id="upd"></span></div>
   </header>
 
-  <div class="grid" id="kpis"></div>
+  <div class="kpis" id="kpis"></div>
 
   <section>
-    <h2>🏆 Tabla General <span class="tag" id="tagsem"></span></h2>
-    <div class="hint">Puntos acumulados de la temporada. Los dos primeros se llevan la bolsa grande.</div>
-    <table>
-      <thead><tr>
-        <th class="r">#</th><th>Participante</th>
-        <th class="wl hide">W-L</th><th class="pct hide">%</th>
-        <th class="pts">Pts</th><th class="gap hide">Dif. 1º</th><th></th>
-      </tr></thead>
-      <tbody id="tabla"></tbody>
-    </table>
+    <div class="sh"><h2>Tabla General</h2><span class="tag" id="tagsem"></span></div>
+    <div class="hint" id="hintgen"></div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th class="rk">#</th><th class="mv"></th><th>Participante</th>
+          <th class="c h-sm" id="thS1">S1</th><th class="c h-sm" id="thS2">S2</th>
+          <th class="e">Pts</th>
+          <th class="c h-sm">W-L</th><th class="e h-sm">%</th><th class="e h-xs">Dif</th>
+          <th class="e h-xs">Ganado</th><th class="c h-xs">Surv</th><th></th>
+        </tr></thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </div>
+    <div class="note" id="notagen"></div>
   </section>
 
   <section>
-    <h2>💰 Bolsas y Premios</h2>
-    <div class="hint">Entrada $2,000 por cabeza · 16 participantes · $1,500 quiniela + $500 survival</div>
-    <div class="pot" id="pot"></div>
+    <div class="sh"><h2>Ganadores por Semana</h2><span class="tag">$500 c/u</span></div>
+    <div class="hint">El que hace más puntos esa semana se lleva $500. Si empatan, se parte.</div>
+    <div class="weeks" id="semanales"></div>
+    <div class="note" id="notasem"></div>
   </section>
 
   <section>
-    <h2>📅 Ganadores por Semana</h2>
-    <div class="hint">$500 al que haga más puntos cada semana. Si empatan, se parte el premio.</div>
-    <div id="semanales"></div>
-  </section>
-
-  <section>
-    <h2>💀 Survival <span class="tag">una sola vida</span></h2>
+    <div class="sh"><h2>Survival</h2><span class="tag">una sola vida</span></div>
     <div class="hint">El último vivo se lleva las 8,000 completas. UYUYUYYY.</div>
     <div id="survival"></div>
   </section>
 
-  <footer>Actualizado por el comisionado · Datos de Yahoo Pro Football Pick'em</footer>
+  <section>
+    <div class="sh"><h2>Bolsas y Premios</h2></div>
+    <div class="hint">Entrada $2,000 por cabeza · 16 participantes · $1,500 a quiniela + $500 a survival</div>
+    <div class="pots" id="pots"></div>
+  </section>
+
+  <footer>
+    <div>Lo lleva el comisionado · Datos tomados de Yahoo Pro Football Pick'em</div>
+    <div id="fuente" style="opacity:.6;margin-top:3px"></div>
+  </footer>
 </div>
 
 <script src="data.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 const money = n => '$' + n.toLocaleString('es-MX');
+const D = DATA, S = D.standings, W = D.ultima_semana_cerrada;
 
-document.title = DATA.liga;
-$('titulo').textContent = DATA.liga;
-$('upd').textContent = 'Actualizado ' + DATA.actualizado + ' · Semana ' + DATA.semana_actual;
-$('tagsem').textContent = 'tras semana ' + DATA.semana_actual;
+/* ---------- cálculos ---------- */
+const acum = (p, k) => p.semanas.slice(0, k).reduce((a, b) => a + b, 0);
+function rankAt(k){
+  const m = {};
+  [...S].sort((a, b) => acum(b, k) - acum(a, k)).forEach((p, i) => m[p.pick] = i + 1);
+  return m;
+}
+const rNow = rankAt(W), rPrev = W > 1 ? rankAt(W - 1) : null;
 
-const S = DATA.standings, lider = S[0];
+// dinero ya ganado por semanales
+const ganado = {};
+D.semanales.forEach(s => {
+  if (!s.ganadores.length) return;
+  const parte = s.premio / s.ganadores.length;
+  s.ganadores.forEach(g => ganado[g] = (ganado[g] || 0) + parte);
+});
 
+// estado survival por participante
+const svEstado = {};
+D.survival.vivos.forEach(v => svEstado[v.pick] = { vivo: true, picks: v.picks });
+D.survival.eliminados.forEach(e => svEstado[e.pick] = { vivo: false, semana: e.semana, picks: e.picks, fatal: e.pick_fatal });
+
+const lider = S[0];
+const totalPts = S.reduce((a, p) => a + p.pts, 0);
+const prom = Math.round(totalPts / S.length * 10) / 10;
+let mejor = { pts: -1 };
+S.forEach(p => p.semanas.forEach((v, i) => { if (v > mejor.pts) mejor = { pts: v, pick: p.pick, semana: i + 1 }; }));
+
+/* ---------- header ---------- */
+document.title = D.liga;
+$('titulo').textContent = D.liga;
+const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const [aa, mm, dd] = D.actualizado.split('-').map(Number);
+$('upd').textContent = `Semana ${W} de ${D.total_semanas} cerrada · act. ${dd} ${MESES[mm - 1]} ${aa}`;
+$('tagsem').textContent = 'tras semana ' + W;
+$('fuente').textContent = D.fuente;
+$('hintgen').textContent = 'Puntos acumulados de la temporada. Las flechas son el movimiento contra la semana ' + (W - 1) + '.';
+
+/* ---------- kpis ---------- */
+const vivos = D.survival.vivos.length;
 $('kpis').innerHTML = [
-  ['Líder', lider.pick, lider.pts + ' pts'],
-  ['Semana', DATA.semana_actual + '<small>/' + DATA.total_semanas + '</small>', 'en curso'],
-  ['Bolsa total', money(DATA.bolsas.quiniela.total + DATA.bolsas.survival.total), '24k + 8k'],
-  ['Participantes', DATA.participantes, money(DATA.entrada) + ' c/u']
-].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="l" style="margin:6px 0 0">${s}</div></div>`).join('');
+  ['Líder', lider.pick, lider.pts + ' pts · +' + (lider.pts - S[1].pts) + ' al 2º'],
+  ['Semana', D.semana_actual + '<span class="u">/' + D.total_semanas + '</span>', 'en curso'],
+  ['Bolsa total', money(D.bolsas.quiniela.total + D.bolsas.survival.total), '24k quiniela + 8k survival'],
+  ['Survival', vivos + '<span class="u"> vivos</span>', D.survival.eliminados.length + ' caídos de 16']
+].map(([l, v, s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
 
+/* ---------- tabla ---------- */
+$('thS1').textContent = 'S1'; $('thS2').textContent = 'S2';
 $('tabla').innerHTML = S.map(p => {
-  const tot = p.w + p.l, pct = tot ? Math.round(p.w/tot*1000)/10 : 0;
-  const dif = p.rank === 1 ? '—' : '-' + (lider.pts - p.pts);
-  const prem = p.rank===1 ? '<span class="prize p1">12,000</span>' : p.rank===2 ? '<span class="prize p2">3,000</span>' : '';
+  const tot = p.w + p.l, pct = tot ? (p.w / tot * 100).toFixed(1) : '0.0';
+  const dif = p.rank === 1 ? '—' : '−' + (lider.pts - p.pts);
+  const prem = p.rank === 1 ? '<span class="pill p1">12,000</span>'
+             : p.rank === 2 ? '<span class="pill p2">3,000</span>' : '';
   const w = Math.round(p.pts / lider.pts * 100);
-  return `<tr class="${p.yo?'me':''}">
-    <td class="r ${p.rank===1?'r1':p.rank===2?'r2':''}">${p.rank}</td>
-    <td><span class="nm">${p.pick}</span>${p.real?`<span class="real">${p.real}</span>`:''}
-        <div class="bar"><i style="width:${w}%"></i></div></td>
-    <td class="wl hide">${p.w}-${p.l}</td>
-    <td class="pct hide">${pct}%</td>
-    <td class="pts">${p.pts}</td>
-    <td class="gap hide">${dif}</td>
-    <td style="text-align:right">${prem}</td>
+  const cls = p.rank === 1 ? 'g' : p.rank === 2 ? 's' : p.rank === 3 ? 'b' : '';
+
+  let mv = '<td class="mv">·</td>';
+  if (rPrev) {
+    const d = rPrev[p.pick] - rNow[p.pick];
+    if (d > 0) mv = `<td class="mv up">▲${d}</td>`;
+    else if (d < 0) mv = `<td class="mv dn">▼${-d}</td>`;
+  }
+  const g = ganado[p.pick] || 0;
+  const sv = svEstado[p.pick];
+  const svTxt = !sv ? '<span class="sv x">—</span>'
+    : sv.vivo ? '<span class="sv v">VIVO</span>'
+              : `<span class="sv x">S${sv.semana}</span>`;
+  const mejorSem = Math.max(...p.semanas);
+
+  const meta = [
+    sv ? (sv.vivo ? '<span class="v">VIVO</span>' : `<span>FUERA S${sv.semana}</span>`) : '',
+    g ? `<span class="c">${money(g)}</span>` : ''
+  ].filter(Boolean).join('');
+
+  return `<tr class="${p.yo ? 'me' : ''}">
+    <td class="rk ${cls}">${p.rank}</td>
+    ${mv}
+    <td class="who">
+      <div class="nm">${p.pick}</div>
+      ${p.real ? `<div class="rl">${p.real}</div>` : ''}
+      <div class="bar"><i style="width:${w}%"></i></div>
+      <div class="meta">${meta}</div>
+    </td>
+    ${p.semanas.map(v => `<td class="c h-sm ${v === mejorSem ? '' : 'dim'}">${v}</td>`).join('')}
+    <td class="e pts">${p.pts}</td>
+    <td class="c h-sm dim">${p.w}-${p.l}</td>
+    <td class="e h-sm dim">${pct}%</td>
+    <td class="e h-xs dim">${dif}</td>
+    <td class="e h-xs"><span class="cash ${g ? '' : 'z'}">${g ? money(g) : '—'}</span></td>
+    <td class="c h-xs">${svTxt}</td>
+    <td class="e">${prem}</td>
   </tr>`;
 }).join('');
 
-const box = (t, total, items) => `<div class="potbox"><h3>${t}</h3><div class="big">${money(total)}</div>
-  ${items.map(i=>`<div class="prow"><span>${i.concepto}</span><span>${money(i.monto)}</span></div>`).join('')}</div>`;
-$('pot').innerHTML = box('Quiniela Pick\'em', DATA.bolsas.quiniela.total, DATA.bolsas.quiniela.premios)
-                  + box('Survival', DATA.bolsas.survival.total, DATA.bolsas.survival.premios);
+$('notagen').innerHTML =
+  `Promedio del grupo: <b>${prom} pts</b> · Mejor semana de la temporada: <b>${mejor.pick}</b> con <b>${mejor.pts}</b> en la S${mejor.semana} · ` +
+  `Los premios de 1º y 2º son <b>proyección</b>: se pagan hasta que cierre la semana ${D.total_semanas}.`;
 
-$('semanales').innerHTML = DATA.semanales.map(s => {
-  const g = s.ganadores.length ? s.ganadores.join(' + ') : '—';
-  const cls = s.estado === 'en curso' ? 'badge curso' : 'badge';
-  const pts = s.pts ? s.pts + ' pts' : '';
-  return `<div class="wk"><div><b>Semana ${s.semana}</b> <span class="real">${g}</span></div>
-    <div style="display:flex;gap:10px;align-items:center"><span class="wl2">${pts}</span><span class="${cls}">${s.estado}</span></div></div>`;
-}).join('') || '<div class="empty">Sin semanas registradas todavía.</div>';
+/* ---------- semanales ---------- */
+$('semanales').innerHTML = D.semanales.map(s => {
+  if (!s.ganadores.length) {
+    return `<div class="wk open"><div class="n">Semana ${s.semana}</div>
+      <div class="g">${s.estado === 'en curso' ? 'En juego' : 'Pendiente'}</div>
+      <div class="m"><span>—</span><span class="amt">${money(s.premio)}</span></div></div>`;
+  }
+  const g = s.ganadores.join(' + ');
+  const parte = s.premio / s.ganadores.length;
+  return `<div class="wk"><div class="n">Semana ${s.semana}</div>
+    <div class="g">${g}</div>
+    <div class="m"><span>${s.pts} pts</span>
+      <span class="amt">${money(parte)}${s.ganadores.length > 1 ? ' c/u' : ''}</span></div></div>`;
+}).join('');
 
-const sv = DATA.survival;
-$('survival').innerHTML = sv.vivos.length
-  ? `<div class="hint">Vivos: ${sv.vivos.length} · Eliminados: ${sv.eliminados.length}</div>`
-    + sv.vivos.map(v=>`<div class="wk"><b>${v}</b><span class="badge curso">VIVO</span></div>`).join('')
-    + sv.eliminados.map(e=>`<div class="wk" style="opacity:.5"><b>${e.nombre}</b><span class="badge">caído S${e.semana}</span></div>`).join('')
-  : '<div class="empty">Survival por capturar — mándame la captura del bracket y lo lleno.</div>';
+const pagado = Object.values(ganado).reduce((a, b) => a + b, 0);
+const restante = D.bolsas.quiniela.total - D.bolsas.quiniela.premios[0].monto - D.bolsas.quiniela.premios[1].monto - pagado;
+$('notasem').innerHTML = `Repartido en semanales: <b>${money(pagado)}</b> de ${money(9000)} · Quedan <b>${money(restante)}</b> por jugarse en las ${D.total_semanas - W} semanas restantes.`;
+
+/* ---------- survival ---------- */
+const sv = D.survival, nv = sv.vivos.length, ne = sv.eliminados.length;
+const porSemana = {};
+sv.eliminados.forEach(e => (porSemana[e.semana] = porSemana[e.semana] || []).push(e));
+
+$('survival').innerHTML =
+  `<div class="svbar"><div class="a" style="flex:${nv}"></div><div class="b" style="flex:${ne}"></div></div>
+   <div class="hint" style="margin-bottom:0">${nv} vivos · ${ne} caídos · ${money(D.bolsas.survival.total)} para el último que quede</div>
+
+   <div class="svhead">Siguen vivos (${nv})</div>
+   <div class="svgrid">${sv.vivos.map(v => `
+     <div class="sc"><div class="l">
+        <div class="n2">${v.pick}</div>
+        <div class="pk">${v.picks.join(' · ')}</div>
+     </div><span class="st v">VIVO</span></div>`).join('')}</div>
+
+   ${Object.keys(porSemana).sort((a, b) => b - a).map(k => `
+     <div class="svhead">Cayeron en la semana ${k} (${porSemana[k].length})</div>
+     <div class="svgrid">${porSemana[k].map(e => `
+       <div class="sc out"><div class="l">
+          <div class="n2">${e.pick}</div>
+          <div class="pk">murió con ${e.pick_fatal}</div>
+       </div><span class="st x">FUERA</span></div>`).join('')}</div>`).join('')}`;
+
+/* ---------- bolsas ---------- */
+const pot = (t, total, items) => `<div class="pot"><h3>${t}</h3><div class="big">${money(total)}</div>
+  ${items.map(i => `<div class="pr"><span>${i.concepto}</span><b>${money(i.monto)}</b></div>`).join('')}</div>`;
+$('pots').innerHTML =
+  pot("Quiniela Pick'em", D.bolsas.quiniela.total, D.bolsas.quiniela.premios) +
+  pot('Survival', D.bolsas.survival.total, D.bolsas.survival.premios);
 </script>
 </body>
 </html>

@@ -2,10 +2,12 @@
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
   "actualizado": "2026-09-21",
-  "semana_actual": 2,
+  "semana_actual": 3,
+  "ultima_semana_cerrada": 2,
   "total_semanas": 18,
   "participantes": 16,
   "entrada": 2000,
+  "fuente": "Yahoo Pro Football Pick'em · grupo 19553 / Survival 15166",
   "bolsas": {
     "quiniela": {
       "total": 24000,
@@ -23,30 +25,50 @@
     }
   },
   "standings": [
-    { "rank": 1,  "pick": "Lugamo",       "real": "Luis Gerardo",  "pts": 156, "w": 20, "l": 11 },
-    { "rank": 2,  "pick": "Alonso97",     "real": "Chochos",       "pts": 139, "w": 18, "l": 13 },
-    { "rank": 3,  "pick": "Quillo",       "real": "",              "pts": 138, "w": 16, "l": 15 },
-    { "rank": 4,  "pick": "Eduao",        "real": "Eduardo",       "pts": 138, "w": 13, "l": 18 },
-    { "rank": 5,  "pick": "Ponypicks",    "real": "El Pony",       "pts": 137, "w": 14, "l": 17 },
-    { "rank": 6,  "pick": "Tavo reyna",   "real": "",              "pts": 136, "w": 16, "l": 15 },
-    { "rank": 7,  "pick": "Chefs",        "real": "",              "pts": 134, "w": 15, "l": 16 },
-    { "rank": 8,  "pick": "Wombatido",    "real": "Comisionado",   "pts": 126, "w": 17, "l": 14, "yo": true },
-    { "rank": 9,  "pick": "Adrián Reyna", "real": "",              "pts": 122, "w": 15, "l": 16 },
-    { "rank": 10, "pick": "Potro",        "real": "",              "pts": 121, "w": 13, "l": 18 },
-    { "rank": 11, "pick": "Nikibrin",     "real": "",              "pts": 115, "w": 15, "l": 16 },
-    { "rank": 12, "pick": "Labo",         "real": "",              "pts": 112, "w": 13, "l": 18 },
-    { "rank": 13, "pick": "RUBA",         "real": "",              "pts": 111, "w": 14, "l": 17 },
-    { "rank": 14, "pick": "Rawas Boyz",   "real": "",              "pts": 110, "w": 15, "l": 16 },
-    { "rank": 15, "pick": "Scugo",        "real": "",              "pts": 99,  "w": 12, "l": 19 },
-    { "rank": 16, "pick": "DCG",          "real": "Diego Córdova", "pts": 98,  "w": 11, "l": 20 }
+    { "rank": 1,  "pick": "Lugamo",       "real": "Luis Gerardo", "pts": 156, "w": 20, "l": 11, "semanas": [95, 61] },
+    { "rank": 2,  "pick": "Alonso97",     "real": "Chochos",      "pts": 139, "w": 18, "l": 13, "semanas": [73, 66] },
+    { "rank": 3,  "pick": "Quillo",       "real": "Andrés",       "pts": 138, "w": 16, "l": 15, "semanas": [49, 89] },
+    { "rank": 4,  "pick": "Eduao",        "real": "Eduardo",      "pts": 138, "w": 13, "l": 18, "semanas": [71, 67] },
+    { "rank": 5,  "pick": "Ponypicks",    "real": "El Pony",      "pts": 137, "w": 14, "l": 17, "semanas": [82, 55] },
+    { "rank": 6,  "pick": "Tavo reyna",   "real": "Gustavo",      "pts": 136, "w": 16, "l": 15, "semanas": [81, 55] },
+    { "rank": 7,  "pick": "Chefs",        "real": "Fede",         "pts": 134, "w": 15, "l": 16, "semanas": [57, 77] },
+    { "rank": 8,  "pick": "Wombatido",    "real": "Comisionado",  "pts": 126, "w": 17, "l": 14, "semanas": [75, 51], "yo": true },
+    { "rank": 9,  "pick": "Adrián Reyna", "real": "Adrián",       "pts": 122, "w": 15, "l": 16, "semanas": [81, 41] },
+    { "rank": 10, "pick": "Potro",        "real": "Alejandro",    "pts": 121, "w": 13, "l": 18, "semanas": [67, 54] },
+    { "rank": 11, "pick": "Nikibrin",     "real": "Juan Pablo",   "pts": 115, "w": 15, "l": 16, "semanas": [66, 49] },
+    { "rank": 12, "pick": "Labo",         "real": "Andrés",       "pts": 112, "w": 13, "l": 18, "semanas": [67, 45] },
+    { "rank": 13, "pick": "RUBA",         "real": "Rubén",        "pts": 111, "w": 14, "l": 17, "semanas": [65, 46] },
+    { "rank": 14, "pick": "Rawas Boyz",   "real": "Rudel",        "pts": 110, "w": 15, "l": 16, "semanas": [65, 45] },
+    { "rank": 15, "pick": "Scugo",        "real": "Fabián",       "pts": 99,  "w": 12, "l": 19, "semanas": [62, 37] },
+    { "rank": 16, "pick": "DCG",          "real": "Diego Córdova","pts": 98,  "w": 11, "l": 20, "semanas": [37, 61] }
   ],
   "semanales": [
-    { "semana": 1, "ganadores": [], "pts": null, "premio": 500, "estado": "pendiente" },
-    { "semana": 2, "ganadores": [], "pts": null, "premio": 500, "estado": "en curso" }
+    { "semana": 1, "ganadores": ["Lugamo"], "pts": 95, "premio": 500, "estado": "cerrada" },
+    { "semana": 2, "ganadores": ["Quillo"], "pts": 89, "premio": 500, "estado": "cerrada" },
+    { "semana": 3, "ganadores": [], "pts": null, "premio": 500, "estado": "en curso" }
   ],
   "survival": {
-    "estado": "pendiente",
-    "vivos": [],
-    "eliminados": []
+    "estado": "en curso",
+    "semana": 3,
+    "vivos": [
+      { "pick": "Lugamo",     "picks": ["DET", "PHI"] },
+      { "pick": "Chefs",      "picks": ["JAX", "SF"] },
+      { "pick": "Ponypicks",  "picks": ["JAX", "PHI"] },
+      { "pick": "Potro",      "picks": ["DET", "SF"] },
+      { "pick": "Labo",       "picks": ["CHI", "SF"] },
+      { "pick": "RUBA",       "picks": ["DET", "SF"] },
+      { "pick": "Scugo",      "picks": ["LV", "PHI"] },
+      { "pick": "DCG",        "picks": ["DET", "PHI"] }
+    ],
+    "eliminados": [
+      { "pick": "Eduao",        "semana": 1, "pick_fatal": "TEN", "picks": ["TEN"] },
+      { "pick": "Quillo",       "semana": 1, "pick_fatal": "LAC", "picks": ["LAC"] },
+      { "pick": "Rawas Boyz",   "semana": 1, "pick_fatal": "LAC", "picks": ["LAC"] },
+      { "pick": "Alonso97",     "semana": 2, "pick_fatal": "TB",  "picks": ["JAX", "TB"] },
+      { "pick": "Wombatido",    "semana": 2, "pick_fatal": "TB",  "picks": ["JAX", "TB"] },
+      { "pick": "Adrián Reyna", "semana": 2, "pick_fatal": "TB",  "picks": ["JAX", "TB"] },
+      { "pick": "Nikibrin",     "semana": 2, "pick_fatal": "TB",  "picks": ["JAX", "TB"] },
+      { "pick": "Tavo reyna",   "semana": 2, "pick_fatal": "TB",  "picks": ["JAX", "TB"] }
+    ]
   }
 }
