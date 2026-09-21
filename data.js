@@ -1,0 +1,53 @@
+const DATA = {
+  "liga": "BATILIGA NFL 26/27",
+  "temporada": "2026/2027",
+  "actualizado": "2026-09-21",
+  "semana_actual": 2,
+  "total_semanas": 18,
+  "participantes": 16,
+  "entrada": 2000,
+  "bolsas": {
+    "quiniela": {
+      "total": 24000,
+      "premios": [
+        { "concepto": "1er lugar general", "monto": 12000 },
+        { "concepto": "2o lugar general", "monto": 3000 },
+        { "concepto": "Ganador semanal (500 x 18)", "monto": 9000 }
+      ]
+    },
+    "survival": {
+      "total": 8000,
+      "premios": [
+        { "concepto": "Último sobreviviente", "monto": 8000 }
+      ]
+    }
+  },
+  "standings": [
+    { "rank": 1,  "pick": "Lugamo",       "real": "Luis Gerardo",  "pts": 156, "w": 20, "l": 11 },
+    { "rank": 2,  "pick": "Alonso97",     "real": "Chochos",       "pts": 139, "w": 18, "l": 13 },
+    { "rank": 3,  "pick": "Quillo",       "real": "",              "pts": 138, "w": 16, "l": 15 },
+    { "rank": 4,  "pick": "Eduao",        "real": "Eduardo",       "pts": 138, "w": 13, "l": 18 },
+    { "rank": 5,  "pick": "Ponypicks",    "real": "El Pony",       "pts": 137, "w": 14, "l": 17 },
+    { "rank": 6,  "pick": "Tavo reyna",   "real": "",              "pts": 136, "w": 16, "l": 15 },
+    { "rank": 7,  "pick": "Chefs",        "real": "",              "pts": 134, "w": 15, "l": 16 },
+    { "rank": 8,  "pick": "Wombatido",    "real": "Comisionado",   "pts": 126, "w": 17, "l": 14, "yo": true },
+    { "rank": 9,  "pick": "Adrián Reyna", "real": "",              "pts": 122, "w": 15, "l": 16 },
+    { "rank": 10, "pick": "Potro",        "real": "",              "pts": 121, "w": 13, "l": 18 },
+    { "rank": 11, "pick": "Nikibrin",     "real": "",              "pts": 115, "w": 15, "l": 16 },
+    { "rank": 12, "pick": "Labo",         "real": "",              "pts": 112, "w": 13, "l": 18 },
+    { "rank": 13, "pick": "RUBA",         "real": "",              "pts": 111, "w": 14, "l": 17 },
+    { "rank": 14, "pick": "Rawas Boyz",   "real": "",              "pts": 110, "w": 15, "l": 16 },
+    { "rank": 15, "pick": "Scugo",        "real": "",              "pts": 99,  "w": 12, "l": 19 },
+    { "rank": 16, "pick": "DCG",          "real": "Diego Córdova", "pts": 98,  "w": 11, "l": 20 }
+  ],
+  "semanales": [
+    { "semana": 1, "ganadores": [], "pts": null, "premio": 500, "estado": "pendiente" },
+    { "semana": 2, "ganadores": [], "pts": null, "premio": 500, "estado": "en curso" }
+  ],
+  "survival": {
+    "estado": "pendiente",
+    "vivos": [],
+    "eliminados": []
+  }
+}
+;
