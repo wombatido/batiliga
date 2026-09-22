@@ -7,10 +7,10 @@ Un tablero web de la quiniela. Tres archivos y ya:
 | Archivo | Qué hace |
 |---|---|
 | `data.json` | **Los datos.** Es lo único que cambia cada semana. |
-| `data.js`   | Copia de `data.json` que el navegador puede leer. Se genera solo. |
-| `index.html`| El tablero. Lee `data.js` y dibuja todo. Casi nunca se toca. |
+| `index.html`| El tablero. Lee `data.json` y dibuja todo. Casi nunca se toca. |
 
-Regla de oro: **nunca edites `data.js` a mano.** Edita `data.json` y regenera.
+El tablero pide `data.json` con un sello de tiempo en cada carga, para que
+nadie se quede viendo la tabla vieja por el caché de GitHub.
 
 ## Cómo lo actualizo yo
 
@@ -19,7 +19,7 @@ Cada jueves, viernes, domingo y lunes:
 1. Entro a Yahoo con la sesión que dejaste abierta en mi navegador.
 2. Saco de `Weekly Performance` los puntos de la semana y de `Group Picks`
    del survival quién cayó.
-3. Escribo eso en `data.json`, regenero `data.js` y hago push.
+3. Escribo eso en `data.json` y hago push.
 4. El sitio queda actualizado solo, sin que toques nada.
 
 **Cuando la sesión de Yahoo se venza te aviso**, y nada más te vuelves a loguear
@@ -43,16 +43,33 @@ Abre `data.json` y busca la parte que te interesa:
 Luego, en la Terminal:
 
 ```bash
-cd ~/batiliga && printf 'const DATA = ' > data.js && cat data.json >> data.js && printf ';\n' >> data.js && git add -A && git commit -m "Semana X" && git push
+cd ~/batiliga && git add -A && git commit -m "Semana X" && git push
 ```
 
-## Ver el tablero en tu Mac sin internet
+El sitio se actualiza solo un par de minutos después del push.
+
+## Semanas a medias
+
+Mientras una semana no haya terminado, `data.json` lleva un bloque `parcial`
+con la semana abierta y qué partido falta. El tablero entonces pinta un aviso
+arriba, le pone `*` a esa columna y marca al puntero de la semana como
+**PROVISIONAL** — nadie cobra los $500 hasta que cierre.
+
+Cuando termine el último partido: borra el bloque `parcial`, sube
+`ultima_semana_cerrada` y pasa al ganador de `lider_parcial` a `ganadores`.
+
+## Ver el tablero en tu Mac
+
+Con `fetch` de por medio, abrir el archivo con doble clic ya no funciona
+(el navegador lo bloquea). Levanta el servidorcito:
 
 ```bash
 cd ~/batiliga && python3 -m http.server 8765
 ```
 
 Y abres http://localhost:8765 en el navegador.
+
+O de plano el sitio de verdad: **https://wombatido.github.io/batiliga/**
 
 ## Lo que el tablero calcula solo
 
@@ -63,6 +80,11 @@ No lo metas a mano, sale de los datos:
 - Promedio del grupo y mejor semana de la temporada
 - Cuánto se ha repartido y cuánto falta por jugarse
 - Cuántos siguen vivos en el survival
+
+## El link
+
+**https://wombatido.github.io/batiliga/** — repo `wombatido/batiliga`.
+Lleva `noindex`, así que no sale en Google: solo lo abre quien tenga el link.
 
 ## De dónde salen los datos
 

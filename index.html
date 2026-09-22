@@ -207,181 +207,195 @@
   </footer>
 </div>
 
-<script src="data.js"></script>
 <script>
-const $ = id => document.getElementById(id);
-const money = n => '$' + n.toLocaleString('es-MX');
-const D = DATA, S = D.standings;
-const W = D.semanas_con_datos;          // semanas con puntos, aunque la ultima siga abierta
-const CERR = D.ultima_semana_cerrada;  // ultima semana ya finiquitada
+function render(DATA) {
+  const $ = id => document.getElementById(id);
+  const money = n => '$' + n.toLocaleString('es-MX');
+  const D = DATA, S = D.standings;
+  const W = D.semanas_con_datos;          // semanas con puntos, aunque la ultima siga abierta
+  const CERR = D.ultima_semana_cerrada;  // ultima semana ya finiquitada
 
-/* ---------- cálculos ---------- */
-const acum = (p, k) => p.semanas.slice(0, k).reduce((a, b) => a + b, 0);
-function rankAt(k){
-  const m = {};
-  [...S].sort((a, b) => acum(b, k) - acum(a, k)).forEach((p, i) => m[p.pick] = i + 1);
-  return m;
+  /* ---------- cálculos ---------- */
+  const acum = (p, k) => p.semanas.slice(0, k).reduce((a, b) => a + b, 0);
+  function rankAt(k){
+    const m = {};
+    [...S].sort((a, b) => acum(b, k) - acum(a, k)).forEach((p, i) => m[p.pick] = i + 1);
+    return m;
+  }
+  const rNow = rankAt(W), rPrev = W > 1 ? rankAt(W - 1) : null;
+
+  // dinero ya ganado por semanales
+  const ganado = {};
+  D.semanales.forEach(s => {
+    if (!s.ganadores.length) return;
+    const parte = s.premio / s.ganadores.length;
+    s.ganadores.forEach(g => ganado[g] = (ganado[g] || 0) + parte);
+  });
+
+  // estado survival por participante
+  const svEstado = {};
+  D.survival.vivos.forEach(v => svEstado[v.pick] = { vivo: true, picks: v.picks });
+  D.survival.eliminados.forEach(e => svEstado[e.pick] = { vivo: false, semana: e.semana, picks: e.picks, fatal: e.pick_fatal });
+
+  const lider = S[0];
+  const totalPts = S.reduce((a, p) => a + p.pts, 0);
+  const prom = Math.round(totalPts / S.length * 10) / 10;
+  let mejor = { pts: -1 };
+  S.forEach(p => p.semanas.forEach((v, i) => { if (v > mejor.pts) mejor = { pts: v, pick: p.pick, semana: i + 1 }; }));
+
+  /* ---------- header ---------- */
+  document.title = D.liga;
+  $('titulo').textContent = D.liga;
+  const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const [aa, mm, dd] = D.actualizado.split('-').map(Number);
+  $('upd').textContent = D.parcial
+    ? `Semana ${D.parcial.semana} en curso · act. ${dd} ${MESES[mm - 1]} ${aa}`
+    : `Semana ${CERR} de ${D.total_semanas} cerrada · act. ${dd} ${MESES[mm - 1]} ${aa}`;
+  $('tagsem').textContent = D.parcial ? `semana ${D.parcial.semana} al aire` : 'tras semana ' + CERR;
+  $('fuente').textContent = D.fuente;
+  $('hintgen').textContent = 'Puntos acumulados de la temporada. Las flechas son el movimiento contra la semana ' + (W - 1) + '.';
+
+  $('aviso').innerHTML = D.parcial
+    ? `<div class="warn"><span class="ic">!</span><div>
+         <b>La Semana ${D.parcial.semana} todavía no cierra.</b>
+         Falta ${D.parcial.falta}. Los puntos de la S${D.parcial.semana} y su ganador
+         son <b>provisionales</b> hasta que termine ese partido.
+       </div></div>`
+    : '';
+
+  /* ---------- kpis ---------- */
+  const vivos = D.survival.vivos.length;
+  $('kpis').innerHTML = [
+    ['Líder', lider.pick, lider.pts + ' pts · +' + (lider.pts - S[1].pts) + ' al 2º'],
+    ['Semana', D.semana_actual + '<span class="u">/' + D.total_semanas + '</span>', 'en curso'],
+    ['Bolsa total', money(D.bolsas.quiniela.total + D.bolsas.survival.total), '24k quiniela + 8k survival'],
+    ['Survival', vivos + '<span class="u"> vivos</span>', D.survival.eliminados.length + ' caídos de 16']
+  ].map(([l, v, s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+
+  /* ---------- tabla ---------- */
+  [$('thS1'), $('thS2')].forEach((th, i) => {
+    const n = i + 1;
+    th.innerHTML = D.parcial && n === D.parcial.semana ? `S${n}*` : `S${n}`;
+    if (D.parcial && n === D.parcial.semana) th.title = 'parcial, falta ' + D.parcial.falta;
+  });
+  $('tabla').innerHTML = S.map(p => {
+    const tot = p.w + p.l, pct = tot ? (p.w / tot * 100).toFixed(1) : '0.0';
+    const dif = p.rank === 1 ? '—' : '−' + (lider.pts - p.pts);
+    const prem = p.rank === 1 ? '<span class="pill p1">12,000</span>'
+               : p.rank === 2 ? '<span class="pill p2">3,000</span>' : '';
+    const w = Math.round(p.pts / lider.pts * 100);
+    const cls = p.rank === 1 ? 'g' : p.rank === 2 ? 's' : p.rank === 3 ? 'b' : '';
+
+    let mv = '<td class="mv">·</td>';
+    if (rPrev) {
+      const d = rPrev[p.pick] - rNow[p.pick];
+      if (d > 0) mv = `<td class="mv up">▲${d}</td>`;
+      else if (d < 0) mv = `<td class="mv dn">▼${-d}</td>`;
+    }
+    const g = ganado[p.pick] || 0;
+    const sv = svEstado[p.pick];
+    const svTxt = !sv ? '<span class="sv x">—</span>'
+      : sv.vivo ? '<span class="sv v">VIVO</span>'
+                : `<span class="sv x">S${sv.semana}</span>`;
+    const mejorSem = Math.max(...p.semanas);
+
+    const meta = [
+      sv ? (sv.vivo ? '<span class="v">VIVO</span>' : `<span>FUERA S${sv.semana}</span>`) : '',
+      g ? `<span class="c">${money(g)}</span>` : ''
+    ].filter(Boolean).join('');
+
+    return `<tr class="${p.yo ? 'me' : ''}">
+      <td class="rk ${cls}">${p.rank}</td>
+      ${mv}
+      <td class="who">
+        <div class="nm">${p.pick}</div>
+        ${p.real ? `<div class="rl">${p.real}</div>` : ''}
+        <div class="bar"><i style="width:${w}%"></i></div>
+        <div class="meta">${meta}</div>
+      </td>
+      ${p.semanas.map((v, i) => `<td class="c h-sm ${v === mejorSem ? '' : 'dim'}"${D.parcial && i + 1 === D.parcial.semana ? ' title="parcial"' : ''}>${v}</td>`).join('')}
+      <td class="e pts">${p.pts}</td>
+      <td class="c h-sm dim">${p.w}-${p.l}</td>
+      <td class="e h-sm dim">${pct}%</td>
+      <td class="e h-xs dim">${dif}</td>
+      <td class="e h-xs"><span class="cash ${g ? '' : 'z'}">${g ? money(g) : '—'}</span></td>
+      <td class="c h-xs">${svTxt}</td>
+      <td class="e">${prem}</td>
+    </tr>`;
+  }).join('');
+
+  $('notagen').innerHTML =
+    `Promedio del grupo: <b>${prom} pts</b> · Mejor semana de la temporada: <b>${mejor.pick}</b> con <b>${mejor.pts}</b> en la S${mejor.semana} · ` +
+    `Los premios de 1º y 2º son <b>proyección</b>: se pagan hasta que cierre la semana ${D.total_semanas}.`;
+
+  /* ---------- semanales ---------- */
+  $('semanales').innerHTML = D.semanales.map(s => {
+    if (s.estado === 'parcial') {
+      return `<div class="wk"><div class="n">Semana ${s.semana} <span class="prov">PROVISIONAL</span></div>
+        <div class="g">${s.lider_parcial}</div>
+        <div class="m"><span>va con ${s.pts} pts</span><span class="amt">${money(s.premio)}</span></div></div>`;
+    }
+    if (!s.ganadores.length) {
+      return `<div class="wk open"><div class="n">Semana ${s.semana}</div>
+        <div class="g">${s.estado === 'en curso' ? 'En juego' : 'Pendiente'}</div>
+        <div class="m"><span>—</span><span class="amt">${money(s.premio)}</span></div></div>`;
+    }
+    const g = s.ganadores.join(' + ');
+    const parte = s.premio / s.ganadores.length;
+    return `<div class="wk"><div class="n">Semana ${s.semana}</div>
+      <div class="g">${g}</div>
+      <div class="m"><span>${s.pts} pts</span>
+        <span class="amt">${money(parte)}${s.ganadores.length > 1 ? ' c/u' : ''}</span></div></div>`;
+  }).join('');
+
+  const pagado = Object.values(ganado).reduce((a, b) => a + b, 0);
+  const restante = D.bolsas.quiniela.total - D.bolsas.quiniela.premios[0].monto - D.bolsas.quiniela.premios[1].monto - pagado;
+  $('notasem').innerHTML = `Repartido en semanales: <b>${money(pagado)}</b> de ${money(9000)} · Quedan <b>${money(restante)}</b> por jugarse en las ${D.total_semanas - CERR} semanas restantes.`;
+
+  /* ---------- survival ---------- */
+  const sv = D.survival, nv = sv.vivos.length, ne = sv.eliminados.length;
+  const porSemana = {};
+  sv.eliminados.forEach(e => (porSemana[e.semana] = porSemana[e.semana] || []).push(e));
+
+  $('survival').innerHTML =
+    `<div class="svbar"><div class="a" style="flex:${nv}"></div><div class="b" style="flex:${ne}"></div></div>
+     <div class="hint" style="margin-bottom:0">${nv} vivos · ${ne} caídos · ${money(D.bolsas.survival.total)} para el último que quede</div>
+
+     <div class="svhead">Siguen vivos (${nv})</div>
+     <div class="svgrid">${sv.vivos.map(v => `
+       <div class="sc"><div class="l">
+          <div class="n2">${v.pick}</div>
+          <div class="pk">${v.picks.join(' · ')}</div>
+       </div><span class="st v">VIVO</span></div>`).join('')}</div>
+
+     ${Object.keys(porSemana).sort((a, b) => b - a).map(k => `
+       <div class="svhead">Cayeron en la semana ${k} (${porSemana[k].length})</div>
+       <div class="svgrid">${porSemana[k].map(e => `
+         <div class="sc out"><div class="l">
+            <div class="n2">${e.pick}</div>
+            <div class="pk">murió con ${e.pick_fatal}</div>
+         </div><span class="st x">FUERA</span></div>`).join('')}</div>`).join('')}`;
+
+  /* ---------- bolsas ---------- */
+  const pot = (t, total, items) => `<div class="pot"><h3>${t}</h3><div class="big">${money(total)}</div>
+    ${items.map(i => `<div class="pr"><span>${i.concepto}</span><b>${money(i.monto)}</b></div>`).join('')}</div>`;
+  $('pots').innerHTML =
+    pot("Quiniela Pick'em", D.bolsas.quiniela.total, D.bolsas.quiniela.premios) +
+    pot('Survival', D.bolsas.survival.total, D.bolsas.survival.premios);
 }
-const rNow = rankAt(W), rPrev = W > 1 ? rankAt(W - 1) : null;
 
-// dinero ya ganado por semanales
-const ganado = {};
-D.semanales.forEach(s => {
-  if (!s.ganadores.length) return;
-  const parte = s.premio / s.ganadores.length;
-  s.ganadores.forEach(g => ganado[g] = (ganado[g] || 0) + parte);
-});
-
-// estado survival por participante
-const svEstado = {};
-D.survival.vivos.forEach(v => svEstado[v.pick] = { vivo: true, picks: v.picks });
-D.survival.eliminados.forEach(e => svEstado[e.pick] = { vivo: false, semana: e.semana, picks: e.picks, fatal: e.pick_fatal });
-
-const lider = S[0];
-const totalPts = S.reduce((a, p) => a + p.pts, 0);
-const prom = Math.round(totalPts / S.length * 10) / 10;
-let mejor = { pts: -1 };
-S.forEach(p => p.semanas.forEach((v, i) => { if (v > mejor.pts) mejor = { pts: v, pick: p.pick, semana: i + 1 }; }));
-
-/* ---------- header ---------- */
-document.title = D.liga;
-$('titulo').textContent = D.liga;
-const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-const [aa, mm, dd] = D.actualizado.split('-').map(Number);
-$('upd').textContent = D.parcial
-  ? `Semana ${D.parcial.semana} en curso · act. ${dd} ${MESES[mm - 1]} ${aa}`
-  : `Semana ${CERR} de ${D.total_semanas} cerrada · act. ${dd} ${MESES[mm - 1]} ${aa}`;
-$('tagsem').textContent = D.parcial ? `semana ${D.parcial.semana} al aire` : 'tras semana ' + CERR;
-$('fuente').textContent = D.fuente;
-$('hintgen').textContent = 'Puntos acumulados de la temporada. Las flechas son el movimiento contra la semana ' + (W - 1) + '.';
-
-$('aviso').innerHTML = D.parcial
-  ? `<div class="warn"><span class="ic">!</span><div>
-       <b>La Semana ${D.parcial.semana} todavía no cierra.</b>
-       Falta ${D.parcial.falta}. Los puntos de la S${D.parcial.semana} y su ganador
-       son <b>provisionales</b> hasta que termine ese partido.
-     </div></div>`
-  : '';
-
-/* ---------- kpis ---------- */
-const vivos = D.survival.vivos.length;
-$('kpis').innerHTML = [
-  ['Líder', lider.pick, lider.pts + ' pts · +' + (lider.pts - S[1].pts) + ' al 2º'],
-  ['Semana', D.semana_actual + '<span class="u">/' + D.total_semanas + '</span>', 'en curso'],
-  ['Bolsa total', money(D.bolsas.quiniela.total + D.bolsas.survival.total), '24k quiniela + 8k survival'],
-  ['Survival', vivos + '<span class="u"> vivos</span>', D.survival.eliminados.length + ' caídos de 16']
-].map(([l, v, s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
-
-/* ---------- tabla ---------- */
-[$('thS1'), $('thS2')].forEach((th, i) => {
-  const n = i + 1;
-  th.innerHTML = D.parcial && n === D.parcial.semana ? `S${n}*` : `S${n}`;
-  if (D.parcial && n === D.parcial.semana) th.title = 'parcial, falta ' + D.parcial.falta;
-});
-$('tabla').innerHTML = S.map(p => {
-  const tot = p.w + p.l, pct = tot ? (p.w / tot * 100).toFixed(1) : '0.0';
-  const dif = p.rank === 1 ? '—' : '−' + (lider.pts - p.pts);
-  const prem = p.rank === 1 ? '<span class="pill p1">12,000</span>'
-             : p.rank === 2 ? '<span class="pill p2">3,000</span>' : '';
-  const w = Math.round(p.pts / lider.pts * 100);
-  const cls = p.rank === 1 ? 'g' : p.rank === 2 ? 's' : p.rank === 3 ? 'b' : '';
-
-  let mv = '<td class="mv">·</td>';
-  if (rPrev) {
-    const d = rPrev[p.pick] - rNow[p.pick];
-    if (d > 0) mv = `<td class="mv up">▲${d}</td>`;
-    else if (d < 0) mv = `<td class="mv dn">▼${-d}</td>`;
-  }
-  const g = ganado[p.pick] || 0;
-  const sv = svEstado[p.pick];
-  const svTxt = !sv ? '<span class="sv x">—</span>'
-    : sv.vivo ? '<span class="sv v">VIVO</span>'
-              : `<span class="sv x">S${sv.semana}</span>`;
-  const mejorSem = Math.max(...p.semanas);
-
-  const meta = [
-    sv ? (sv.vivo ? '<span class="v">VIVO</span>' : `<span>FUERA S${sv.semana}</span>`) : '',
-    g ? `<span class="c">${money(g)}</span>` : ''
-  ].filter(Boolean).join('');
-
-  return `<tr class="${p.yo ? 'me' : ''}">
-    <td class="rk ${cls}">${p.rank}</td>
-    ${mv}
-    <td class="who">
-      <div class="nm">${p.pick}</div>
-      ${p.real ? `<div class="rl">${p.real}</div>` : ''}
-      <div class="bar"><i style="width:${w}%"></i></div>
-      <div class="meta">${meta}</div>
-    </td>
-    ${p.semanas.map((v, i) => `<td class="c h-sm ${v === mejorSem ? '' : 'dim'}"${D.parcial && i + 1 === D.parcial.semana ? ' title="parcial"' : ''}>${v}</td>`).join('')}
-    <td class="e pts">${p.pts}</td>
-    <td class="c h-sm dim">${p.w}-${p.l}</td>
-    <td class="e h-sm dim">${pct}%</td>
-    <td class="e h-xs dim">${dif}</td>
-    <td class="e h-xs"><span class="cash ${g ? '' : 'z'}">${g ? money(g) : '—'}</span></td>
-    <td class="c h-xs">${svTxt}</td>
-    <td class="e">${prem}</td>
-  </tr>`;
-}).join('');
-
-$('notagen').innerHTML =
-  `Promedio del grupo: <b>${prom} pts</b> · Mejor semana de la temporada: <b>${mejor.pick}</b> con <b>${mejor.pts}</b> en la S${mejor.semana} · ` +
-  `Los premios de 1º y 2º son <b>proyección</b>: se pagan hasta que cierre la semana ${D.total_semanas}.`;
-
-/* ---------- semanales ---------- */
-$('semanales').innerHTML = D.semanales.map(s => {
-  if (s.estado === 'parcial') {
-    return `<div class="wk"><div class="n">Semana ${s.semana} <span class="prov">PROVISIONAL</span></div>
-      <div class="g">${s.lider_parcial}</div>
-      <div class="m"><span>va con ${s.pts} pts</span><span class="amt">${money(s.premio)}</span></div></div>`;
-  }
-  if (!s.ganadores.length) {
-    return `<div class="wk open"><div class="n">Semana ${s.semana}</div>
-      <div class="g">${s.estado === 'en curso' ? 'En juego' : 'Pendiente'}</div>
-      <div class="m"><span>—</span><span class="amt">${money(s.premio)}</span></div></div>`;
-  }
-  const g = s.ganadores.join(' + ');
-  const parte = s.premio / s.ganadores.length;
-  return `<div class="wk"><div class="n">Semana ${s.semana}</div>
-    <div class="g">${g}</div>
-    <div class="m"><span>${s.pts} pts</span>
-      <span class="amt">${money(parte)}${s.ganadores.length > 1 ? ' c/u' : ''}</span></div></div>`;
-}).join('');
-
-const pagado = Object.values(ganado).reduce((a, b) => a + b, 0);
-const restante = D.bolsas.quiniela.total - D.bolsas.quiniela.premios[0].monto - D.bolsas.quiniela.premios[1].monto - pagado;
-$('notasem').innerHTML = `Repartido en semanales: <b>${money(pagado)}</b> de ${money(9000)} · Quedan <b>${money(restante)}</b> por jugarse en las ${D.total_semanas - CERR} semanas restantes.`;
-
-/* ---------- survival ---------- */
-const sv = D.survival, nv = sv.vivos.length, ne = sv.eliminados.length;
-const porSemana = {};
-sv.eliminados.forEach(e => (porSemana[e.semana] = porSemana[e.semana] || []).push(e));
-
-$('survival').innerHTML =
-  `<div class="svbar"><div class="a" style="flex:${nv}"></div><div class="b" style="flex:${ne}"></div></div>
-   <div class="hint" style="margin-bottom:0">${nv} vivos · ${ne} caídos · ${money(D.bolsas.survival.total)} para el último que quede</div>
-
-   <div class="svhead">Siguen vivos (${nv})</div>
-   <div class="svgrid">${sv.vivos.map(v => `
-     <div class="sc"><div class="l">
-        <div class="n2">${v.pick}</div>
-        <div class="pk">${v.picks.join(' · ')}</div>
-     </div><span class="st v">VIVO</span></div>`).join('')}</div>
-
-   ${Object.keys(porSemana).sort((a, b) => b - a).map(k => `
-     <div class="svhead">Cayeron en la semana ${k} (${porSemana[k].length})</div>
-     <div class="svgrid">${porSemana[k].map(e => `
-       <div class="sc out"><div class="l">
-          <div class="n2">${e.pick}</div>
-          <div class="pk">murió con ${e.pick_fatal}</div>
-       </div><span class="st x">FUERA</span></div>`).join('')}</div>`).join('')}`;
-
-/* ---------- bolsas ---------- */
-const pot = (t, total, items) => `<div class="pot"><h3>${t}</h3><div class="big">${money(total)}</div>
-  ${items.map(i => `<div class="pr"><span>${i.concepto}</span><b>${money(i.monto)}</b></div>`).join('')}</div>`;
-$('pots').innerHTML =
-  pot("Quiniela Pick'em", D.bolsas.quiniela.total, D.bolsas.quiniela.premios) +
-  pot('Survival', D.bolsas.survival.total, D.bolsas.survival.premios);
+// Los datos se piden frescos en cada carga: sin esto, el cache de GitHub Pages
+// le sigue enseñando la tabla vieja a la banda hasta 10 minutos despues del push.
+fetch("data.json?t=" + Date.now(), { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(render)
+  .catch(e => {
+    document.getElementById("aviso").innerHTML =
+      `<div class="warn"><span class="ic">!</span><div>
+         <b>No se pudieron cargar los datos.</b> Revisa tu conexión y recarga la página.
+         <span style="color:var(--dim2)">(${e.message})</span>
+       </div></div>`;
+  });
 </script>
 </body>
 </html>
