@@ -120,6 +120,15 @@
   .pr:last-child{border:none;padding-bottom:0}
   .pr b{color:var(--txt);font-weight:750;white-space:nowrap}
 
+  .warn{display:flex;gap:9px;align-items:flex-start;background:rgba(242,193,78,.07);
+    border:1px solid rgba(242,193,78,.28);border-radius:12px;padding:11px 13px;margin-bottom:16px;
+    font-size:12.5px;color:var(--txt);line-height:1.5}
+  .warn b{color:var(--gold)}
+  .warn .ic{color:var(--gold);font-weight:800;flex:none}
+  .prov{font-size:9px;font-weight:800;letter-spacing:.6px;color:var(--gold);
+    background:rgba(242,193,78,.13);border:1px solid rgba(242,193,78,.3);
+    padding:1px 5px;border-radius:99px;margin-left:5px;vertical-align:middle}
+
   .note{font-size:11.5px;color:var(--dim2);margin-top:13px;padding-top:12px;border-top:1px solid rgba(38,49,72,.6)}
   footer{text-align:center;color:var(--dim2);font-size:11px;padding-top:18px;line-height:1.7}
 
@@ -150,6 +159,8 @@
     <div class="sub">Pro Football Pick'em &nbsp;·&nbsp; Quiniela + Survival</div>
     <div class="upd"><span class="dot"></span><span id="upd"></span></div>
   </header>
+
+  <div id="aviso"></div>
 
   <div class="kpis" id="kpis"></div>
 
@@ -200,7 +211,9 @@
 <script>
 const $ = id => document.getElementById(id);
 const money = n => '$' + n.toLocaleString('es-MX');
-const D = DATA, S = D.standings, W = D.ultima_semana_cerrada;
+const D = DATA, S = D.standings;
+const W = D.semanas_con_datos;          // semanas con puntos, aunque la ultima siga abierta
+const CERR = D.ultima_semana_cerrada;  // ultima semana ya finiquitada
 
 /* ---------- cálculos ---------- */
 const acum = (p, k) => p.semanas.slice(0, k).reduce((a, b) => a + b, 0);
@@ -235,10 +248,20 @@ document.title = D.liga;
 $('titulo').textContent = D.liga;
 const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 const [aa, mm, dd] = D.actualizado.split('-').map(Number);
-$('upd').textContent = `Semana ${W} de ${D.total_semanas} cerrada · act. ${dd} ${MESES[mm - 1]} ${aa}`;
-$('tagsem').textContent = 'tras semana ' + W;
+$('upd').textContent = D.parcial
+  ? `Semana ${D.parcial.semana} en curso · act. ${dd} ${MESES[mm - 1]} ${aa}`
+  : `Semana ${CERR} de ${D.total_semanas} cerrada · act. ${dd} ${MESES[mm - 1]} ${aa}`;
+$('tagsem').textContent = D.parcial ? `semana ${D.parcial.semana} al aire` : 'tras semana ' + CERR;
 $('fuente').textContent = D.fuente;
 $('hintgen').textContent = 'Puntos acumulados de la temporada. Las flechas son el movimiento contra la semana ' + (W - 1) + '.';
+
+$('aviso').innerHTML = D.parcial
+  ? `<div class="warn"><span class="ic">!</span><div>
+       <b>La Semana ${D.parcial.semana} todavía no cierra.</b>
+       Falta ${D.parcial.falta}. Los puntos de la S${D.parcial.semana} y su ganador
+       son <b>provisionales</b> hasta que termine ese partido.
+     </div></div>`
+  : '';
 
 /* ---------- kpis ---------- */
 const vivos = D.survival.vivos.length;
@@ -250,7 +273,11 @@ $('kpis').innerHTML = [
 ].map(([l, v, s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
 
 /* ---------- tabla ---------- */
-$('thS1').textContent = 'S1'; $('thS2').textContent = 'S2';
+[$('thS1'), $('thS2')].forEach((th, i) => {
+  const n = i + 1;
+  th.innerHTML = D.parcial && n === D.parcial.semana ? `S${n}*` : `S${n}`;
+  if (D.parcial && n === D.parcial.semana) th.title = 'parcial, falta ' + D.parcial.falta;
+});
 $('tabla').innerHTML = S.map(p => {
   const tot = p.w + p.l, pct = tot ? (p.w / tot * 100).toFixed(1) : '0.0';
   const dif = p.rank === 1 ? '—' : '−' + (lider.pts - p.pts);
@@ -286,7 +313,7 @@ $('tabla').innerHTML = S.map(p => {
       <div class="bar"><i style="width:${w}%"></i></div>
       <div class="meta">${meta}</div>
     </td>
-    ${p.semanas.map(v => `<td class="c h-sm ${v === mejorSem ? '' : 'dim'}">${v}</td>`).join('')}
+    ${p.semanas.map((v, i) => `<td class="c h-sm ${v === mejorSem ? '' : 'dim'}"${D.parcial && i + 1 === D.parcial.semana ? ' title="parcial"' : ''}>${v}</td>`).join('')}
     <td class="e pts">${p.pts}</td>
     <td class="c h-sm dim">${p.w}-${p.l}</td>
     <td class="e h-sm dim">${pct}%</td>
@@ -303,6 +330,11 @@ $('notagen').innerHTML =
 
 /* ---------- semanales ---------- */
 $('semanales').innerHTML = D.semanales.map(s => {
+  if (s.estado === 'parcial') {
+    return `<div class="wk"><div class="n">Semana ${s.semana} <span class="prov">PROVISIONAL</span></div>
+      <div class="g">${s.lider_parcial}</div>
+      <div class="m"><span>va con ${s.pts} pts</span><span class="amt">${money(s.premio)}</span></div></div>`;
+  }
   if (!s.ganadores.length) {
     return `<div class="wk open"><div class="n">Semana ${s.semana}</div>
       <div class="g">${s.estado === 'en curso' ? 'En juego' : 'Pendiente'}</div>
@@ -318,7 +350,7 @@ $('semanales').innerHTML = D.semanales.map(s => {
 
 const pagado = Object.values(ganado).reduce((a, b) => a + b, 0);
 const restante = D.bolsas.quiniela.total - D.bolsas.quiniela.premios[0].monto - D.bolsas.quiniela.premios[1].monto - pagado;
-$('notasem').innerHTML = `Repartido en semanales: <b>${money(pagado)}</b> de ${money(9000)} · Quedan <b>${money(restante)}</b> por jugarse en las ${D.total_semanas - W} semanas restantes.`;
+$('notasem').innerHTML = `Repartido en semanales: <b>${money(pagado)}</b> de ${money(9000)} · Quedan <b>${money(restante)}</b> por jugarse en las ${D.total_semanas - CERR} semanas restantes.`;
 
 /* ---------- survival ---------- */
 const sv = D.survival, nv = sv.vivos.length, ne = sv.eliminados.length;
