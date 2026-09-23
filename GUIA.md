@@ -81,6 +81,29 @@ No lo metas a mano, sale de los datos:
 - Cuánto se ha repartido y cuánto falta por jugarse
 - Cuántos siguen vivos en el survival
 
+## Calendario: los días raros de la temporada
+
+La NFL no siempre juega jueves, domingo y lunes. Estas son las fechas de la
+temporada 2026/27 que se salen del patrón (hora de León):
+
+| Fecha | Día | Hora | Qué es |
+|---|---|---|---|
+| 25 nov | miércoles | 7:00 pm | Víspera de Thanksgiving |
+| 26 nov | jueves | 11:00 am, 2:30 pm, 6:20 pm | Thanksgiving, tres juegos |
+| 27 nov | viernes | 2:00 pm | Black Friday |
+| 19 dic | sábado | 4:00 pm y 7:20 pm | Doble sabatino |
+| 25 dic | viernes | 12:00 pm, 3:30 pm, 7:15 pm | Navidad, tres juegos |
+| 26 dic | sábado | por confirmar | Semana 16 |
+| 2 ene | sábado | por confirmar | Semana 17 |
+| 9 ene | sábado | por confirmar | Semana 18 (cierre) |
+
+Los horarios "por confirmar" los define la NFL ya avanzada la temporada. La
+rutina de días especiales corre esos días de todos modos.
+
+**Domingos con juego internacional temprano** (arrancan 7:30 u 8:30 am y
+terminan antes del mediodía): 4, 11, 18 y 25 de octubre; 8 y 15 de noviembre.
+Por eso la rutina dominical empieza a las 10 am y no a las 11.
+
 ## El link
 
 **https://wombatido.github.io/batiliga/** — repo `wombatido/batiliga`.
