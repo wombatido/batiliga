@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-09-22",
+  "actualizado": "2026-09-25",
   "semana_actual": 3,
   "ultima_semana_cerrada": 2,
   "total_semanas": 18,
@@ -43,10 +43,11 @@
       "real": "Luis Gerardo",
       "pts": 169,
       "w": 21,
-      "l": 11,
+      "l": 12,
       "semanas": [
         95,
-        74
+        74,
+        0
       ]
     },
     {
@@ -55,70 +56,76 @@
       "real": "El Pony",
       "pts": 152,
       "w": 15,
-      "l": 17,
+      "l": 18,
       "semanas": [
         82,
-        70
+        70,
+        0
       ]
     },
     {
       "rank": 3,
-      "pick": "Alonso97",
-      "real": "Chochos",
-      "pts": 139,
-      "w": 18,
-      "l": 14,
+      "pick": "Quillo",
+      "real": "Andrés",
+      "pts": 148,
+      "w": 17,
+      "l": 16,
       "semanas": [
-        73,
-        66
+        49,
+        89,
+        10
       ]
     },
     {
       "rank": 4,
-      "pick": "Quillo",
-      "real": "Andrés",
-      "pts": 138,
-      "w": 16,
-      "l": 16,
+      "pick": "Alonso97",
+      "real": "Chochos",
+      "pts": 147,
+      "w": 19,
+      "l": 14,
       "semanas": [
-        49,
-        89
+        73,
+        66,
+        8
       ]
     },
     {
       "rank": 5,
-      "pick": "Eduao",
-      "real": "Eduardo",
-      "pts": 138,
-      "w": 13,
-      "l": 19,
+      "pick": "Tavo reyna",
+      "real": "Gustavo",
+      "pts": 144,
+      "w": 17,
+      "l": 16,
       "semanas": [
-        71,
-        67
+        81,
+        55,
+        8
       ]
     },
     {
       "rank": 6,
-      "pick": "Adrián Reyna",
-      "real": "Adrián",
-      "pts": 137,
-      "w": 16,
-      "l": 16,
+      "pick": "Eduao",
+      "real": "Eduardo",
+      "pts": 138,
+      "w": 13,
+      "l": 20,
       "semanas": [
-        81,
-        56
+        71,
+        67,
+        0
       ]
     },
     {
       "rank": 7,
-      "pick": "Tavo reyna",
-      "real": "Gustavo",
-      "pts": 136,
+      "pick": "Adrián Reyna",
+      "real": "Adrián",
+      "pts": 137,
       "w": 16,
-      "l": 16,
+      "l": 17,
       "semanas": [
         81,
-        55
+        56,
+        0
       ]
     },
     {
@@ -127,10 +134,11 @@
       "real": "Fede",
       "pts": 134,
       "w": 15,
-      "l": 17,
+      "l": 18,
       "semanas": [
         57,
-        77
+        77,
+        0
       ]
     },
     {
@@ -139,10 +147,11 @@
       "real": "Andrés",
       "pts": 128,
       "w": 14,
-      "l": 18,
+      "l": 19,
       "semanas": [
         67,
-        61
+        61,
+        0
       ]
     },
     {
@@ -151,10 +160,11 @@
       "real": "Rudel",
       "pts": 126,
       "w": 16,
-      "l": 16,
+      "l": 17,
       "semanas": [
         65,
-        61
+        61,
+        0
       ]
     },
     {
@@ -163,59 +173,64 @@
       "real": "Comisionado",
       "pts": 126,
       "w": 17,
-      "l": 15,
+      "l": 16,
       "semanas": [
         75,
-        51
+        51,
+        0
       ],
       "yo": true
     },
     {
       "rank": 12,
-      "pick": "Potro",
-      "real": "Alejandro",
+      "pick": "RUBA",
+      "real": "Rubén",
       "pts": 121,
-      "w": 13,
-      "l": 19,
+      "w": 15,
+      "l": 18,
       "semanas": [
-        67,
-        54
+        65,
+        46,
+        10
       ]
     },
     {
       "rank": 13,
-      "pick": "Nikibrin",
-      "real": "Juan Pablo",
-      "pts": 115,
-      "w": 15,
-      "l": 17,
+      "pick": "Potro",
+      "real": "Alejandro",
+      "pts": 121,
+      "w": 13,
+      "l": 20,
       "semanas": [
-        66,
-        49
+        67,
+        54,
+        0
       ]
     },
     {
       "rank": 14,
-      "pick": "DCG",
-      "real": "Diego Córdova",
-      "pts": 114,
-      "w": 12,
-      "l": 20,
+      "pick": "Nikibrin",
+      "real": "Juan Pablo",
+      "pts": 118,
+      "w": 16,
+      "l": 17,
       "semanas": [
-        37,
-        77
+        66,
+        49,
+        3
       ]
     },
     {
       "rank": 15,
-      "pick": "RUBA",
-      "real": "Rubén",
-      "pts": 111,
-      "w": 14,
-      "l": 18,
+      "pick": "DCG",
+      "real": "Diego Córdova",
+      "pts": 117,
+      "w": 13,
+      "l": 20,
       "semanas": [
-        65,
-        46
+        37,
+        77,
+        3
       ]
     },
     {
@@ -224,10 +239,11 @@
       "real": "Fabián",
       "pts": 99,
       "w": 12,
-      "l": 20,
+      "l": 21,
       "semanas": [
         62,
-        37
+        37,
+        0
       ]
     }
   ],
@@ -253,9 +269,10 @@
     {
       "semana": 3,
       "ganadores": [],
-      "pts": null,
+      "lider_parcial": "Quillo y RUBA",
+      "pts": 10,
       "premio": 500,
-      "estado": "en curso"
+      "estado": "parcial"
     }
   ],
   "survival": {
@@ -390,7 +407,12 @@
         ]
       }
     ],
-    "nota": "Nadie ha hecho pick de la Semana 3 todavia."
+    "nota": "Nadie cayó en el Thursday Night (GB vs Atl). Los picks de la Semana 3 siguen ocultos hasta que arranque cada partido."
   },
-  "semanas_con_datos": 2
+  "semanas_con_datos": 3,
+  "parcial": {
+    "semana": 3,
+    "falta": "el domingo (14 partidos) y Chi vs Phi (Monday Night)",
+    "nota": "Solo se ha jugado el Thursday Night (Atlanta le ganó a Green Bay). Los puntos de la Semana 3 y su ganador son provisionales hasta que termine el Monday Night."
+  }
 }
