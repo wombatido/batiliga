@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-09-25",
+  "actualizado": "2026-09-27",
   "semana_actual": 3,
   "ultima_semana_cerrada": 2,
   "total_semanas": 18,
@@ -283,56 +283,64 @@
         "pick": "Lugamo",
         "picks": [
           "DET",
-          "PHI"
+          "PHI",
+          "KC"
         ]
       },
       {
         "pick": "Chefs",
         "picks": [
           "JAX",
-          "SF"
+          "SF",
+          "KC"
         ]
       },
       {
         "pick": "Ponypicks",
         "picks": [
           "JAX",
-          "PHI"
+          "PHI",
+          "KC"
         ]
       },
       {
         "pick": "Potro",
         "picks": [
           "DET",
-          "SF"
+          "SF",
+          "KC"
         ]
       },
       {
         "pick": "Labo",
         "picks": [
           "CHI",
-          "SF"
+          "SF",
+          "SEA"
         ]
       },
       {
         "pick": "RUBA",
         "picks": [
           "DET",
-          "SF"
+          "SF",
+          "KC"
         ]
       },
       {
         "pick": "Scugo",
         "picks": [
           "LV",
-          "PHI"
+          "PHI",
+          "KC"
         ]
       },
       {
         "pick": "DCG",
         "picks": [
           "DET",
-          "PHI"
+          "PHI",
+          "KC"
         ]
       }
     ],
@@ -407,12 +415,12 @@
         ]
       }
     ],
-    "nota": "Nadie cayó en el Thursday Night (GB vs Atl). Los picks de la Semana 3 siguen ocultos hasta que arranque cada partido."
+    "nota": "Nadie ha caído en la Semana 3 todavía. Siete de los ocho vivos van con Kansas City (vs Miami); Labo es el único con Seattle."
   },
   "semanas_con_datos": 3,
   "parcial": {
     "semana": 3,
-    "falta": "el domingo (14 partidos) y Chi vs Phi (Monday Night)",
-    "nota": "Solo se ha jugado el Thursday Night (Atlanta le ganó a Green Bay). Los puntos de la Semana 3 y su ganador son provisionales hasta que termine el Monday Night."
+    "falta": "9 partidos del domingo en juego, 5 de la tarde/noche y Chi vs Phi (Monday Night)",
+    "nota": "Solo el Thursday Night tiene marcador final (Atlanta le ganó a Green Bay). Los puntos de la Semana 3 y su ganador son provisionales hasta que termine el Monday Night."
   }
 }
