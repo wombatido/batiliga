@@ -1,9 +1,9 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-09-28",
-  "semana_actual": 3,
-  "ultima_semana_cerrada": 2,
+  "actualizado": "2026-09-29",
+  "semana_actual": 4,
+  "ultima_semana_cerrada": 3,
   "total_semanas": 18,
   "participantes": 16,
   "entrada": 2000,
@@ -43,7 +43,7 @@
       "real": "Gustavo",
       "pts": 210,
       "w": 23,
-      "l": 24,
+      "l": 25,
       "semanas": [
         81,
         55,
@@ -56,7 +56,7 @@
       "real": "Andrés",
       "pts": 210,
       "w": 24,
-      "l": 23,
+      "l": 24,
       "semanas": [
         49,
         89,
@@ -69,7 +69,7 @@
       "real": "Luis Gerardo",
       "pts": 210,
       "w": 26,
-      "l": 21,
+      "l": 22,
       "semanas": [
         95,
         74,
@@ -82,7 +82,7 @@
       "real": "Andrés",
       "pts": 208,
       "w": 22,
-      "l": 25,
+      "l": 26,
       "semanas": [
         67,
         61,
@@ -95,7 +95,7 @@
       "real": "Chochos",
       "pts": 208,
       "w": 27,
-      "l": 20,
+      "l": 21,
       "semanas": [
         73,
         66,
@@ -108,7 +108,7 @@
       "real": "Adrián",
       "pts": 203,
       "w": 24,
-      "l": 23,
+      "l": 24,
       "semanas": [
         81,
         56,
@@ -119,13 +119,13 @@
       "rank": 7,
       "pick": "Ponypicks",
       "real": "El Pony",
-      "pts": 197,
-      "w": 21,
+      "pts": 203,
+      "w": 22,
       "l": 26,
       "semanas": [
         82,
         70,
-        45
+        51
       ]
     },
     {
@@ -134,7 +134,7 @@
       "real": "Fede",
       "pts": 196,
       "w": 22,
-      "l": 25,
+      "l": 26,
       "semanas": [
         57,
         77,
@@ -147,7 +147,7 @@
       "real": "Eduardo",
       "pts": 183,
       "w": 20,
-      "l": 27,
+      "l": 28,
       "semanas": [
         71,
         67,
@@ -160,7 +160,7 @@
       "real": "Comisionado",
       "pts": 180,
       "w": 24,
-      "l": 23,
+      "l": 24,
       "semanas": [
         75,
         51,
@@ -174,7 +174,7 @@
       "real": "Rubén",
       "pts": 179,
       "w": 22,
-      "l": 25,
+      "l": 26,
       "semanas": [
         65,
         46,
@@ -187,7 +187,7 @@
       "real": "Alejandro",
       "pts": 178,
       "w": 19,
-      "l": 28,
+      "l": 29,
       "semanas": [
         67,
         54,
@@ -200,7 +200,7 @@
       "real": "Juan Pablo",
       "pts": 175,
       "w": 22,
-      "l": 25,
+      "l": 26,
       "semanas": [
         66,
         49,
@@ -213,7 +213,7 @@
       "real": "Rudel",
       "pts": 174,
       "w": 21,
-      "l": 26,
+      "l": 27,
       "semanas": [
         65,
         61,
@@ -222,28 +222,28 @@
     },
     {
       "rank": 15,
-      "pick": "DCG",
-      "real": "Diego Córdova",
-      "pts": 156,
-      "w": 18,
-      "l": 29,
-      "semanas": [
-        37,
-        77,
-        42
-      ]
-    },
-    {
-      "rank": 16,
       "pick": "Scugo",
       "real": "Fabián",
-      "pts": 154,
-      "w": 19,
+      "pts": 158,
+      "w": 20,
       "l": 28,
       "semanas": [
         62,
         37,
-        55
+        59
+      ]
+    },
+    {
+      "rank": 16,
+      "pick": "DCG",
+      "real": "Diego Córdova",
+      "pts": 156,
+      "w": 18,
+      "l": 30,
+      "semanas": [
+        37,
+        77,
+        42
       ]
     }
   ],
@@ -268,16 +268,24 @@
     },
     {
       "semana": 3,
-      "ganadores": [],
-      "lider_parcial": "Labo",
+      "ganadores": [
+        "Labo"
+      ],
       "pts": 80,
       "premio": 500,
-      "estado": "parcial"
+      "estado": "cerrada"
+    },
+    {
+      "semana": 4,
+      "ganadores": [],
+      "pts": 0,
+      "premio": 500,
+      "estado": "pendiente"
     }
   ],
   "survival": {
     "estado": "en curso",
-    "semana": 3,
+    "semana": 4,
     "vivos": [
       {
         "pick": "Lugamo",
@@ -417,12 +425,7 @@
         ]
       }
     ],
-    "nota": "Labo cayó en la Semana 3 con Seattle. Los siete que quedan vivos fueron con Kansas City y sobrevivieron."
+    "nota": "Labo cayó en la Semana 3 con Seattle. Los siete que quedan vivos fueron con Kansas City y sobrevivieron; siguen vivos para la Semana 4."
   },
-  "semanas_con_datos": 3,
-  "parcial": {
-    "semana": 3,
-    "falta": "Chi vs Phi (Monday Night)",
-    "nota": "Ya terminaron todos los partidos del domingo; solo falta el Monday Night. Los puntos de la Semana 3 y su ganador son provisionales hasta que termine."
-  }
+  "semanas_con_datos": 3
 }
