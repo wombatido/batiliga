@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-10-02",
+  "actualizado": "2026-10-04",
   "semana_actual": 4,
   "ultima_semana_cerrada": 3,
   "total_semanas": 18,
@@ -309,7 +309,8 @@
         "picks": [
           "DET",
           "PHI",
-          "KC"
+          "KC",
+          "BAL"
         ]
       },
       {
@@ -317,7 +318,8 @@
         "picks": [
           "JAX",
           "SF",
-          "KC"
+          "KC",
+          "MIN"
         ]
       },
       {
@@ -325,7 +327,8 @@
         "picks": [
           "JAX",
           "PHI",
-          "KC"
+          "KC",
+          "BAL"
         ]
       },
       {
@@ -333,7 +336,8 @@
         "picks": [
           "DET",
           "SF",
-          "KC"
+          "KC",
+          "MIN"
         ]
       },
       {
@@ -341,7 +345,8 @@
         "picks": [
           "DET",
           "SF",
-          "KC"
+          "KC",
+          "BAL"
         ]
       },
       {
@@ -349,7 +354,8 @@
         "picks": [
           "LV",
           "PHI",
-          "KC"
+          "KC",
+          "MIN"
         ]
       },
       {
@@ -357,7 +363,8 @@
         "picks": [
           "DET",
           "PHI",
-          "KC"
+          "KC",
+          "MIN"
         ]
       }
     ],
@@ -442,7 +449,7 @@
         ]
       }
     ],
-    "nota": "Labo cayó en la Semana 3 con Seattle. Siguen siete vivos; sus picks de la Semana 4 aún no se revelan en Yahoo."
+    "nota": "Labo cayó en la Semana 3 con Seattle. Siguen siete vivos; en la Semana 4 cuatro van con Minnesota (Chefs, Potro, Scugo, DCG) y tres con Baltimore (Lugamo, Ponypicks, RUBA)."
   },
   "semanas_con_datos": 4,
   "parcial": {
