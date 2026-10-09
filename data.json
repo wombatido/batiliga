@@ -319,10 +319,10 @@
     {
       "semana": 5,
       "ganadores": [],
-      "lider_parcial": "Eduao",
       "pts": 7,
       "premio": 500,
-      "estado": "parcial"
+      "estado": "parcial",
+      "lider_parcial": "Eduao"
     }
   ],
   "survival": {
