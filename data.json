@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-10-08",
+  "actualizado": "2026-10-09",
   "semana_actual": 5,
   "ultima_semana_cerrada": 4,
   "total_semanas": 18,
@@ -41,28 +41,30 @@
       "rank": 1,
       "pick": "Tavo reyna",
       "real": "Gustavo",
-      "pts": 281,
-      "w": 31,
+      "pts": 287,
+      "w": 32,
       "l": 32,
       "semanas": [
         81,
         55,
         74,
-        71
+        71,
+        6
       ]
     },
     {
       "rank": 2,
       "pick": "Alonso97",
       "real": "Chochos",
-      "pts": 273,
-      "w": 35,
+      "pts": 278,
+      "w": 36,
       "l": 28,
       "semanas": [
         73,
         66,
         69,
-        65
+        65,
+        5
       ]
     },
     {
@@ -71,54 +73,58 @@
       "real": "Luis Gerardo",
       "pts": 265,
       "w": 31,
-      "l": 32,
+      "l": 33,
       "semanas": [
         95,
         74,
         41,
-        55
+        55,
+        0
       ]
     },
     {
       "rank": 4,
       "pick": "Quillo",
       "real": "Andrés",
-      "pts": 259,
-      "w": 31,
+      "pts": 264,
+      "w": 32,
       "l": 32,
       "semanas": [
         49,
         89,
         72,
-        49
+        49,
+        5
       ]
     },
     {
       "rank": 5,
-      "pick": "Labo",
-      "real": "Andrés",
-      "pts": 251,
-      "w": 28,
-      "l": 35,
-      "semanas": [
-        67,
-        61,
-        80,
-        43
-      ]
-    },
-    {
-      "rank": 6,
       "pick": "Nikibrin",
       "real": "Juan Pablo",
-      "pts": 250,
-      "w": 32,
+      "pts": 254,
+      "w": 33,
       "l": 31,
       "semanas": [
         66,
         49,
         60,
-        75
+        75,
+        4
+      ]
+    },
+    {
+      "rank": 6,
+      "pick": "Labo",
+      "real": "Andrés",
+      "pts": 251,
+      "w": 28,
+      "l": 36,
+      "semanas": [
+        67,
+        61,
+        80,
+        43,
+        0
       ]
     },
     {
@@ -127,54 +133,58 @@
       "real": "Adrián",
       "pts": 246,
       "w": 31,
-      "l": 32,
+      "l": 33,
       "semanas": [
         81,
         56,
         66,
-        43
+        43,
+        0
       ]
     },
     {
       "rank": 8,
-      "pick": "RUBA",
-      "real": "Rubén",
-      "pts": 237,
-      "w": 29,
-      "l": 34,
-      "semanas": [
-        65,
-        46,
-        68,
-        58
-      ]
-    },
-    {
-      "rank": 9,
-      "pick": "Chefs",
-      "real": "Fede",
-      "pts": 233,
-      "w": 28,
-      "l": 35,
-      "semanas": [
-        57,
-        77,
-        62,
-        37
-      ]
-    },
-    {
-      "rank": 10,
       "pick": "Potro",
       "real": "Alejandro",
-      "pts": 232,
-      "w": 24,
+      "pts": 238,
+      "w": 25,
       "l": 39,
       "semanas": [
         67,
         54,
         57,
-        54
+        54,
+        6
+      ]
+    },
+    {
+      "rank": 9,
+      "pick": "RUBA",
+      "real": "Rubén",
+      "pts": 237,
+      "w": 29,
+      "l": 35,
+      "semanas": [
+        65,
+        46,
+        68,
+        58,
+        0
+      ]
+    },
+    {
+      "rank": 10,
+      "pick": "Chefs",
+      "real": "Fede",
+      "pts": 233,
+      "w": 28,
+      "l": 36,
+      "semanas": [
+        57,
+        77,
+        62,
+        37,
+        0
       ]
     },
     {
@@ -183,55 +193,59 @@
       "real": "Comisionado",
       "pts": 228,
       "w": 31,
-      "l": 32,
+      "l": 33,
       "semanas": [
         75,
         51,
         54,
-        48
+        48,
+        0
       ],
       "yo": true
     },
     {
       "rank": 12,
-      "pick": "DCG",
-      "real": "Diego Córdova",
-      "pts": 221,
-      "w": 26,
-      "l": 37,
-      "semanas": [
-        37,
-        77,
-        42,
-        65
-      ]
-    },
-    {
-      "rank": 13,
-      "pick": "Ponypicks",
-      "real": "El Pony",
-      "pts": 218,
-      "w": 25,
-      "l": 38,
-      "semanas": [
-        82,
-        70,
-        51,
-        15
-      ]
-    },
-    {
-      "rank": 14,
       "pick": "Eduao",
       "real": "Eduardo",
-      "pts": 215,
-      "w": 24,
+      "pts": 222,
+      "w": 25,
       "l": 39,
       "semanas": [
         71,
         67,
         45,
-        32
+        32,
+        7
+      ]
+    },
+    {
+      "rank": 13,
+      "pick": "DCG",
+      "real": "Diego Córdova",
+      "pts": 221,
+      "w": 26,
+      "l": 38,
+      "semanas": [
+        37,
+        77,
+        42,
+        65,
+        0
+      ]
+    },
+    {
+      "rank": 14,
+      "pick": "Ponypicks",
+      "real": "El Pony",
+      "pts": 218,
+      "w": 25,
+      "l": 39,
+      "semanas": [
+        82,
+        70,
+        51,
+        15,
+        0
       ]
     },
     {
@@ -240,12 +254,13 @@
       "real": "Rudel",
       "pts": 207,
       "w": 26,
-      "l": 37,
+      "l": 38,
       "semanas": [
         65,
         61,
         48,
-        33
+        33,
+        0
       ]
     },
     {
@@ -254,12 +269,13 @@
       "real": "Fabián",
       "pts": 202,
       "w": 25,
-      "l": 38,
+      "l": 39,
       "semanas": [
         62,
         37,
         59,
-        44
+        44,
+        0
       ]
     }
   ],
@@ -304,40 +320,14 @@
       "semana": 5,
       "ganadores": [],
       "premio": 500,
-      "estado": "pendiente"
+      "estado": "parcial",
+      "lider_parcial": "Eduao (7 pts)"
     }
   ],
   "survival": {
     "estado": "en curso",
     "semana": 5,
     "vivos": [
-      {
-        "pick": "Lugamo",
-        "picks": [
-          "DET",
-          "PHI",
-          "KC",
-          "BAL"
-        ]
-      },
-      {
-        "pick": "Chefs",
-        "picks": [
-          "JAX",
-          "SF",
-          "KC",
-          "MIN"
-        ]
-      },
-      {
-        "pick": "Ponypicks",
-        "picks": [
-          "JAX",
-          "PHI",
-          "KC",
-          "BAL"
-        ]
-      },
       {
         "pick": "Potro",
         "picks": [
@@ -360,15 +350,6 @@
         "pick": "Scugo",
         "picks": [
           "LV",
-          "PHI",
-          "KC",
-          "MIN"
-        ]
-      },
-      {
-        "pick": "DCG",
-        "picks": [
-          "DET",
           "PHI",
           "KC",
           "MIN"
@@ -454,9 +435,62 @@
           "SF",
           "SEA"
         ]
+      },
+      {
+        "pick": "Lugamo",
+        "semana": 5,
+        "pick_fatal": "DAL",
+        "picks": [
+          "DET",
+          "PHI",
+          "KC",
+          "BAL",
+          "DAL"
+        ]
+      },
+      {
+        "pick": "Chefs",
+        "semana": 5,
+        "pick_fatal": "DAL",
+        "picks": [
+          "JAX",
+          "SF",
+          "KC",
+          "MIN",
+          "DAL"
+        ]
+      },
+      {
+        "pick": "Ponypicks",
+        "semana": 5,
+        "pick_fatal": "DAL",
+        "picks": [
+          "JAX",
+          "PHI",
+          "KC",
+          "BAL",
+          "DAL"
+        ]
+      },
+      {
+        "pick": "DCG",
+        "semana": 5,
+        "pick_fatal": "DAL",
+        "picks": [
+          "DET",
+          "PHI",
+          "KC",
+          "MIN",
+          "DAL"
+        ]
       }
     ],
-    "nota": "Semana 4 cerrada: nadie cayó y siguen los siete vivos."
+    "nota": "Semana 5 en curso: cayeron con Dallas los que lo escogieron en el Thursday Night. Faltan por jugar los demás."
   },
-  "semanas_con_datos": 4
+  "semanas_con_datos": 5,
+  "parcial": {
+    "semana": 5,
+    "falta": "el resto de la jornada (domingo y Monday Night)",
+    "nota": "Solo se ha jugado el Thursday Night (Dallas vs Tampa Bay, ganó TB)."
+  }
 }
