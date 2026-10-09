@@ -319,9 +319,10 @@
     {
       "semana": 5,
       "ganadores": [],
+      "lider_parcial": "Eduao",
+      "pts": 7,
       "premio": 500,
-      "estado": "parcial",
-      "lider_parcial": "Eduao (7 pts)"
+      "estado": "parcial"
     }
   ],
   "survival": {
@@ -485,12 +486,12 @@
         ]
       }
     ],
-    "nota": "Semana 5 en curso: cayeron con Dallas los que lo escogieron en el Thursday Night. Faltan por jugar los demás."
+    "nota": "Semana 5: Dallas ganó el Thursday Night y los siete siguen vivos. Los picks de Potro, RUBA y Scugo se ven hasta que arranque su juego."
   },
   "semanas_con_datos": 5,
   "parcial": {
     "semana": 5,
-    "falta": "el resto de la jornada (domingo y Monday Night)",
-    "nota": "Solo se ha jugado el Thursday Night (Dallas vs Tampa Bay, ganó TB)."
+    "falta": "Resto de la Semana 5 (domingo y Monday Night)",
+    "nota": "Ya se jugó el Thursday Night (Tampa Bay en Dallas). Tavo reyna y Potro van arriba provisionales con 6 pts, Eduao con 7 es el líder de la semana por ahora."
   }
 }
