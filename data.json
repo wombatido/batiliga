@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-10-09",
+  "actualizado": "2026-10-11",
   "semana_actual": 5,
   "ultima_semana_cerrada": 4,
   "total_semanas": 18,
@@ -335,7 +335,8 @@
           "DET",
           "SF",
           "KC",
-          "MIN"
+          "MIN",
+          "HOU"
         ]
       },
       {
@@ -344,7 +345,8 @@
           "DET",
           "SF",
           "KC",
-          "BAL"
+          "BAL",
+          "HOU"
         ]
       },
       {
@@ -353,7 +355,8 @@
           "LV",
           "PHI",
           "KC",
-          "MIN"
+          "MIN",
+          "HOU"
         ]
       }
     ],
@@ -486,7 +489,7 @@
         ]
       }
     ],
-    "nota": "Semana 5: Dallas ganó el Thursday Night y los siete siguen vivos. Los picks de Potro, RUBA y Scugo se ven hasta que arranque su juego."
+    "nota": "Semana 5: Dallas ganó el Thursday Night y los siete siguen vivos. Los tres que quedan (Potro, RUBA y Scugo) pickearon Houston, así que se la juegan juntos."
   },
   "semanas_con_datos": 5,
   "parcial": {
