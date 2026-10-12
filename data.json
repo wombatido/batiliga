@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-10-11",
+  "actualizado": "2026-10-12",
   "semana_actual": 5,
   "ultima_semana_cerrada": 4,
   "total_semanas": 18,
@@ -42,7 +42,7 @@
       "pick": "Tavo reyna",
       "real": "Gustavo",
       "pts": 344,
-      "w": 39,
+      "w": 38,
       "l": 39,
       "semanas": [
         81,
@@ -58,7 +58,7 @@
       "real": "Luis Gerardo",
       "pts": 331,
       "w": 40,
-      "l": 38,
+      "l": 37,
       "semanas": [
         95,
         74,
@@ -72,7 +72,7 @@
       "pick": "Alonso97",
       "real": "Chochos",
       "pts": 318,
-      "w": 42,
+      "w": 41,
       "l": 36,
       "semanas": [
         73,
@@ -88,7 +88,7 @@
       "real": "Adrián",
       "pts": 313,
       "w": 40,
-      "l": 38,
+      "l": 37,
       "semanas": [
         81,
         56,
@@ -103,7 +103,7 @@
       "real": "Andrés",
       "pts": 305,
       "w": 34,
-      "l": 44,
+      "l": 43,
       "semanas": [
         67,
         61,
@@ -117,7 +117,7 @@
       "pick": "Potro",
       "real": "Alejandro",
       "pts": 303,
-      "w": 34,
+      "w": 33,
       "l": 44,
       "semanas": [
         67,
@@ -132,7 +132,7 @@
       "pick": "Eduao",
       "real": "Eduardo",
       "pts": 303,
-      "w": 36,
+      "w": 35,
       "l": 42,
       "semanas": [
         71,
@@ -147,7 +147,7 @@
       "pick": "Quillo",
       "real": "Andrés",
       "pts": 301,
-      "w": 38,
+      "w": 37,
       "l": 40,
       "semanas": [
         49,
@@ -163,7 +163,7 @@
       "real": "Comisionado",
       "pts": 299,
       "w": 38,
-      "l": 40,
+      "l": 39,
       "semanas": [
         75,
         51,
@@ -178,8 +178,8 @@
       "pick": "Nikibrin",
       "real": "Juan Pablo",
       "pts": 296,
-      "w": 39,
-      "l": 38,
+      "w": 38,
+      "l": 39,
       "semanas": [
         66,
         49,
@@ -194,7 +194,7 @@
       "real": "Fede",
       "pts": 290,
       "w": 35,
-      "l": 43,
+      "l": 42,
       "semanas": [
         57,
         77,
@@ -209,7 +209,7 @@
       "real": "Rubén",
       "pts": 285,
       "w": 33,
-      "l": 45,
+      "l": 44,
       "semanas": [
         65,
         46,
@@ -239,7 +239,7 @@
       "real": "Diego Córdova",
       "pts": 269,
       "w": 32,
-      "l": 46,
+      "l": 45,
       "semanas": [
         37,
         77,
