@@ -1,7 +1,7 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-10-29",
+  "actualizado": "2026-11-01",
   "semana_actual": 8,
   "ultima_semana_cerrada": 7,
   "parcial": {
@@ -207,24 +207,6 @@
     },
     {
       "rank": 10,
-      "pick": "DCG",
-      "real": "Diego Córdova",
-      "pts": 377,
-      "w": 49,
-      "l": 57,
-      "semanas": [
-        37,
-        77,
-        42,
-        65,
-        58,
-        44,
-        49,
-        5
-      ]
-    },
-    {
-      "rank": 11,
       "pick": "RUBA",
       "real": "Rubén",
       "pts": 377,
@@ -239,6 +221,24 @@
         22,
         50,
         6
+      ]
+    },
+    {
+      "rank": 11,
+      "pick": "DCG",
+      "real": "Diego Córdova",
+      "pts": 377,
+      "w": 49,
+      "l": 57,
+      "semanas": [
+        37,
+        77,
+        42,
+        65,
+        58,
+        44,
+        49,
+        5
       ]
     },
     {
@@ -261,20 +261,20 @@
     },
     {
       "rank": 13,
-      "pick": "Labo",
-      "real": "Andrés",
+      "pick": "Chefs",
+      "real": "Fede",
       "pts": 364,
-      "w": 43,
-      "l": 63,
+      "w": 48,
+      "l": 58,
       "semanas": [
-        67,
-        61,
-        80,
-        43,
+        57,
+        77,
         62,
-        15,
-        36,
-        0
+        37,
+        62,
+        17,
+        44,
+        8
       ]
     },
     {
@@ -297,20 +297,20 @@
     },
     {
       "rank": 15,
-      "pick": "Chefs",
-      "real": "Fede",
+      "pick": "Labo",
+      "real": "Andrés",
       "pts": 364,
-      "w": 48,
-      "l": 58,
+      "w": 43,
+      "l": 63,
       "semanas": [
-        57,
-        77,
+        67,
+        61,
+        80,
+        43,
         62,
-        37,
-        62,
-        17,
-        44,
-        8
+        15,
+        36,
+        0
       ]
     },
     {
