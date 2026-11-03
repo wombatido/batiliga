@@ -1,14 +1,9 @@
 {
   "liga": "BATILIGA NFL 26/27",
   "temporada": "2026/2027",
-  "actualizado": "2026-11-01",
-  "semana_actual": 8,
-  "ultima_semana_cerrada": 7,
-  "parcial": {
-    "semana": 8,
-    "falta": "Bears vs Seahawks (Monday Night, lunes 2 nov)",
-    "nota": "Semana 8 en curso: Yahoo ya calificó 9 de 14 partidos (el Panthers vs Packers del jueves y ocho del domingo). En Group Picks Scugo va arriba con 69, luego RUBA con 56 y Eduao con 53, pero Weekly Performance de Yahoo todavía no suma esos juegos, así que la tabla sigue con los puntos oficiales. Faltan Rams vs Chargers, Chiefs vs Broncos, Patriots vs Dolphins, Commanders vs Eagles y el Bears vs Seahawks del lunes. Nadie cobra los $500 hasta que cierre."
-  },
+  "actualizado": "2026-11-03",
+  "semana_actual": 9,
+  "ultima_semana_cerrada": 8,
   "total_semanas": 18,
   "participantes": 16,
   "entrada": 2000,
@@ -46,9 +41,9 @@
       "rank": 1,
       "pick": "Lugamo",
       "real": "Luis Gerardo",
-      "pts": 464,
-      "w": 57,
-      "l": 49,
+      "pts": 507,
+      "w": 62,
+      "l": 57,
       "semanas": [
         95,
         74,
@@ -57,16 +52,16 @@
         81,
         59,
         54,
-        5
+        48
       ]
     },
     {
       "rank": 2,
       "pick": "Wombatido",
       "real": "Comisionado",
-      "pts": 460,
-      "w": 57,
-      "l": 49,
+      "pts": 503,
+      "w": 63,
+      "l": 56,
       "semanas": [
         75,
         51,
@@ -75,7 +70,7 @@
         81,
         58,
         80,
-        13
+        56
       ],
       "yo": true
     },
@@ -83,9 +78,9 @@
       "rank": 3,
       "pick": "Quillo",
       "real": "Andrés",
-      "pts": 435,
-      "w": 54,
-      "l": 52,
+      "pts": 489,
+      "w": 60,
+      "l": 59,
       "semanas": [
         49,
         89,
@@ -94,52 +89,16 @@
         49,
         46,
         69,
-        12
+        66
       ]
     },
     {
       "rank": 4,
-      "pick": "Alonso97",
-      "real": "Chochos",
-      "pts": 423,
-      "w": 58,
-      "l": 48,
-      "semanas": [
-        73,
-        66,
-        69,
-        65,
-        45,
-        42,
-        60,
-        3
-      ]
-    },
-    {
-      "rank": 5,
-      "pick": "Adrián Reyna",
-      "real": "Adrián",
-      "pts": 415,
-      "w": 54,
-      "l": 52,
-      "semanas": [
-        81,
-        56,
-        66,
-        43,
-        70,
-        29,
-        63,
-        7
-      ]
-    },
-    {
-      "rank": 6,
       "pick": "Tavo reyna",
       "real": "Gustavo",
-      "pts": 413,
-      "w": 46,
-      "l": 60,
+      "pts": 472,
+      "w": 54,
+      "l": 65,
       "semanas": [
         81,
         55,
@@ -148,34 +107,52 @@
         63,
         0,
         63,
-        6
+        65
+      ]
+    },
+    {
+      "rank": 5,
+      "pick": "Adrián Reyna",
+      "real": "Adrián",
+      "pts": 471,
+      "w": 62,
+      "l": 57,
+      "semanas": [
+        81,
+        56,
+        66,
+        43,
+        70,
+        29,
+        63,
+        63
+      ]
+    },
+    {
+      "rank": 6,
+      "pick": "Alonso97",
+      "real": "Chochos",
+      "pts": 471,
+      "w": 64,
+      "l": 55,
+      "semanas": [
+        73,
+        66,
+        69,
+        65,
+        45,
+        42,
+        60,
+        51
       ]
     },
     {
       "rank": 7,
-      "pick": "Potro",
-      "real": "Alejandro",
-      "pts": 406,
-      "w": 45,
-      "l": 61,
-      "semanas": [
-        67,
-        54,
-        57,
-        54,
-        71,
-        30,
-        67,
-        6
-      ]
-    },
-    {
-      "rank": 8,
       "pick": "Nikibrin",
       "real": "Juan Pablo",
-      "pts": 390,
-      "w": 51,
-      "l": 55,
+      "pts": 459,
+      "w": 59,
+      "l": 60,
       "semanas": [
         66,
         49,
@@ -184,34 +161,16 @@
         61,
         29,
         45,
-        5
+        74
       ]
     },
     {
-      "rank": 9,
-      "pick": "Scugo",
-      "real": "Fabián",
-      "pts": 387,
-      "w": 49,
-      "l": 57,
-      "semanas": [
-        62,
-        37,
-        59,
-        44,
-        86,
-        22,
-        63,
-        14
-      ]
-    },
-    {
-      "rank": 10,
+      "rank": 8,
       "pick": "RUBA",
       "real": "Rubén",
-      "pts": 377,
-      "w": 46,
-      "l": 60,
+      "pts": 450,
+      "w": 54,
+      "l": 65,
       "semanas": [
         65,
         46,
@@ -220,88 +179,34 @@
         62,
         22,
         50,
-        6
+        79
       ]
     },
     {
-      "rank": 11,
-      "pick": "DCG",
-      "real": "Diego Córdova",
-      "pts": 377,
-      "w": 49,
-      "l": 57,
-      "semanas": [
-        37,
-        77,
-        42,
-        65,
-        58,
-        44,
-        49,
-        5
-      ]
-    },
-    {
-      "rank": 12,
-      "pick": "Ponypicks",
-      "real": "El Pony",
-      "pts": 373,
-      "w": 46,
+      "rank": 9,
+      "pick": "Scugo",
+      "real": "Fabián",
+      "pts": 448,
+      "w": 59,
       "l": 60,
       "semanas": [
-        82,
-        70,
-        51,
-        15,
-        62,
-        32,
-        51,
-        10
-      ]
-    },
-    {
-      "rank": 13,
-      "pick": "Chefs",
-      "real": "Fede",
-      "pts": 364,
-      "w": 48,
-      "l": 58,
-      "semanas": [
-        57,
-        77,
         62,
         37,
-        62,
-        17,
+        59,
         44,
-        8
+        86,
+        22,
+        63,
+        75
       ]
     },
     {
-      "rank": 14,
-      "pick": "Eduao",
-      "real": "Eduardo",
-      "pts": 364,
-      "w": 45,
-      "l": 61,
-      "semanas": [
-        71,
-        67,
-        45,
-        32,
-        98,
-        9,
-        41,
-        1
-      ]
-    },
-    {
-      "rank": 15,
+      "rank": 10,
       "pick": "Labo",
       "real": "Andrés",
-      "pts": 364,
-      "w": 43,
-      "l": 63,
+      "pts": 436,
+      "w": 52,
+      "l": 67,
       "semanas": [
         67,
         61,
@@ -310,16 +215,106 @@
         62,
         15,
         36,
-        0
+        72
+      ]
+    },
+    {
+      "rank": 11,
+      "pick": "Potro",
+      "real": "Alejandro",
+      "pts": 433,
+      "w": 50,
+      "l": 69,
+      "semanas": [
+        67,
+        54,
+        57,
+        54,
+        71,
+        30,
+        67,
+        33
+      ]
+    },
+    {
+      "rank": 12,
+      "pick": "Ponypicks",
+      "real": "El Pony",
+      "pts": 431,
+      "w": 53,
+      "l": 66,
+      "semanas": [
+        82,
+        70,
+        51,
+        15,
+        62,
+        32,
+        51,
+        68
+      ]
+    },
+    {
+      "rank": 13,
+      "pick": "Eduao",
+      "real": "Eduardo",
+      "pts": 427,
+      "w": 53,
+      "l": 66,
+      "semanas": [
+        71,
+        67,
+        45,
+        32,
+        98,
+        9,
+        41,
+        64
+      ]
+    },
+    {
+      "rank": 14,
+      "pick": "DCG",
+      "real": "Diego Córdova",
+      "pts": 422,
+      "w": 55,
+      "l": 64,
+      "semanas": [
+        37,
+        77,
+        42,
+        65,
+        58,
+        44,
+        49,
+        50
+      ]
+    },
+    {
+      "rank": 15,
+      "pick": "Chefs",
+      "real": "Fede",
+      "pts": 420,
+      "w": 55,
+      "l": 64,
+      "semanas": [
+        57,
+        77,
+        62,
+        37,
+        62,
+        17,
+        44,
+        64
       ]
     },
     {
       "rank": 16,
       "pick": "Rawas Boyz",
       "real": "Rudel",
-      "pts": 316,
-      "w": 43,
-      "l": 63,
+      "pts": 363,
+      "w": 51,
+      "l": 68,
       "semanas": [
         65,
         61,
@@ -328,7 +323,7 @@
         21,
         24,
         54,
-        10
+        57
       ]
     }
   ],
@@ -398,11 +393,18 @@
     },
     {
       "semana": 8,
-      "ganadores": [],
-      "lider_parcial": "Scugo",
-      "pts": 14,
+      "ganadores": [
+        "RUBA"
+      ],
+      "pts": 79,
       "premio": 500,
-      "estado": "parcial"
+      "estado": "cerrada"
+    },
+    {
+      "semana": 9,
+      "ganadores": [],
+      "premio": 500,
+      "estado": "pendiente"
     }
   ],
   "survival": {
